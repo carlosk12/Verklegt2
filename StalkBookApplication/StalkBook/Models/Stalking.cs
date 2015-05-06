@@ -8,6 +8,7 @@ namespace StalkBook.Models
 {
     public class Stalking
     {
+		public int ID { get; set; }
         public int userId { get; set; }
         public int stalkedId { get; set; }
     }
