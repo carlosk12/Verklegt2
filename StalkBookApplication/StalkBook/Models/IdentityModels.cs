@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
 
 namespace StalkBook.Models
 {
@@ -9,6 +10,7 @@ namespace StalkBook.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Status> userStatuses { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection")
         {
