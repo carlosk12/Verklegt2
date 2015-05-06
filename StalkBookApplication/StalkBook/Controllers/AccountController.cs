@@ -58,7 +58,7 @@ namespace StalkBook.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-			return View("Login", "_Layout2", model);
+            return View(model);
         }
 
         //
@@ -66,7 +66,7 @@ namespace StalkBook.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View("Register", "_Layout2");
+            return View();
         }
 
         //
