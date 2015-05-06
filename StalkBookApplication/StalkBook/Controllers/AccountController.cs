@@ -58,7 +58,7 @@ namespace StalkBook.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+			return View("Login", "_Layout2", model);
         }
 
         //
@@ -66,7 +66,7 @@ namespace StalkBook.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            return View("Register", "_Layout2");
         }
 
         //
@@ -78,7 +78,7 @@ namespace StalkBook.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser() { UserName = model.UserName };
+                var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

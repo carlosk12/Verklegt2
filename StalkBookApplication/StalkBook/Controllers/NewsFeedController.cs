@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace StalkBook.Controllers
 {
+    [Authorize]
     public class NewsFeedController : Controller
     {
         public ActionResult Index()
