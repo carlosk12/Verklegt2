@@ -12,12 +12,13 @@ namespace StalkBook.Controllers
         // GET: /User/
         public ActionResult Index()
         {
-            return View();
+            return View("Profile");
         }
-
+        /*
 		public ActionResult Profile()
 		{
 			return View("Profile");
 		}
+         */
 	}
 }
