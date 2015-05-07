@@ -23,7 +23,7 @@ namespace StalkBook.Controllers
         public ActionResult Index(Status userStatus)
         {
             var db = new ApplicationDbContext();
-            //userStatus.userId = User.Identity.GetUserId();
+            userStatus.userId = User.Identity.GetUserId();
 
             userStatus.timeCreated = System.DateTime.Now;
             db.userStatuses.Add(userStatus);
