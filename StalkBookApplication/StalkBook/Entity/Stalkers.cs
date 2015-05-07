@@ -9,7 +9,7 @@ namespace StalkBook.Models
     public class Stalkers
     {
 		public int ID { get; set; }
-        public int userId { get; set; }
-        public int stalkersId { get; set; }
+        public string userId { get; set; }
+		public string stalkersId { get; set; }
     }
 }

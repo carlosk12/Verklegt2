@@ -64,6 +64,10 @@ namespace StalkBook.Models
 
     public class RegisterViewModel
     {
+		[Required]
+		[Display(Name = "Full Name")]
+		public string fullName { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

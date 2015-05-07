@@ -9,7 +9,7 @@ namespace StalkBook.Models
 	public class Status
 	{
 		public int ID { get; set; }
-		public int userId { get; set; }
+		public string userId { get; set; }
 		public string body { get; set; }
 		public DateTime timeCreated { get; set; }
 		public string urlToPic { get; set; }
