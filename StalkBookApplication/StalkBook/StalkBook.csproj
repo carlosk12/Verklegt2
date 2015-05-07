@@ -167,7 +167,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Entity\Group.cs" />
-    <Compile Include="Models\GroupProfileFK.cs" />
+    <Compile Include="Entity\GroupProfileFK.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Entity\Profile.cs" />
