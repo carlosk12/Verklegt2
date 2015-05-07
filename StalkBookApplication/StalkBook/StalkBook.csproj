@@ -240,7 +240,7 @@
     <Content Include="Views\Shared\_Layout2.cshtml" />
     <Content Include="Views\Newsfeed\Index.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
-    <Content Include="Views\Group\View.cshtml" />
+    <Content Include="Views\Group\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
