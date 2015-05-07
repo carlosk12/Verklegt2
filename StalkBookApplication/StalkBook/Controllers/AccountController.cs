@@ -58,7 +58,7 @@ namespace StalkBook.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
-            return View();
+            return View("Login", "_Layout2");
         }
 
         //
@@ -70,7 +70,7 @@ namespace StalkBook.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return View("Login", "_Layout2", model);
             }
 
             // This doesn't count login failures towards account lockout
@@ -139,7 +139,7 @@ namespace StalkBook.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            return View("Register", "_Layout2");
         }
 
         //
@@ -169,7 +169,7 @@ namespace StalkBook.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return View("Register", "_Layout2", model);
         }
 
         //
