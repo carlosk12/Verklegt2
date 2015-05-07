@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 
 namespace StalkBook.Models
 {
@@ -10,6 +11,7 @@ namespace StalkBook.Models
     public class ApplicationUser : IdentityUser
     {
 		public string fullName { get; set; }
+		public DateTime dateCreated { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
