@@ -1,4 +1,4 @@
-﻿@model StalkBook.Models.Profile
+﻿@model StalkBook.Models.ProfileViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -8,6 +8,11 @@
 
 <div>
     <p>@Model.name</p>
-    <p>Created: @Model.creationDate.Day/@Model.creationDate.Month/@Model.creationDate.Year </p>    
+    <p>Created: @Model.creationDate.Day/@Model.creationDate.Month/@Model.creationDate.Year </p>  
+      
 </div>
 
+@foreach (var item in Model.userStatuses)
+{
+    <p>@item.body</p>
+}

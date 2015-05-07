@@ -8,15 +8,25 @@ namespace StalkBook.Service
 {
     public class ProfileService
     {
-		public Profile getOwnProfile(string id)
+		public ProfileViewModel getOwnProfile(string id)
 		{
 			var db = new ApplicationDbContext();
 
-			var value = (from p in db.profiles
+			var profileInfo = (from p in db.profiles
 						where p.userID == id
 						select p).FirstOrDefault();
 
-			return value;
+            List<Status> myStatuses = (from s in db.userStatuses
+                              where s.userId == id
+                              select s).ToList();
+
+            var result = new ProfileViewModel();
+            result.creationDate = profileInfo.creationDate;
+            result.name = profileInfo.name;
+            result.userStatuses = myStatuses;
+            result.userID = profileInfo.userID;
+
+			return result;
 		}
     }
 }
