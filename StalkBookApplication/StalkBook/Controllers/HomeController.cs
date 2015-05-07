@@ -18,12 +18,6 @@ namespace StalkBook.Controllers
 		{
 			ViewBag.Message = "Your application description page.";
 
-			var db = new ApplicationDbContext();
-
-			var query = (from s in db.userStatuses
-						 where s.timeCreated == DateTime.Now.Date
-						 select s).ToList();
-
 			return View();
 		}
 
