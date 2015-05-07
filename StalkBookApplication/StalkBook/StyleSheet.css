@@ -21,3 +21,11 @@ button[type=submit]
 {
     float:right;
 }
+
+.navbar
+{
+    background-color: rgb(51, 204, 204);
+    padding-bottom: 50px;
+    border-bottom: none;  
+}
+
