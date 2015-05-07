@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StalkBook.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,12 @@ namespace StalkBook.Controllers
 		public ActionResult About()
 		{
 			ViewBag.Message = "Your application description page.";
+
+			var db = new ApplicationDbContext();
+
+			var query = (from s in db.userStatuses
+						 where s.timeCreated == DateTime.Now.Date
+						 select s).ToList();
 
 			return View();
 		}
