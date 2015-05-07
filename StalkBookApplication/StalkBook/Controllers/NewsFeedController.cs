@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using StalkBook.Service;
 
 namespace StalkBook.Controllers
 {
@@ -19,13 +20,14 @@ namespace StalkBook.Controllers
 
 
         [HttpPost]
-        public ActionResult Index(Status s)
+        public ActionResult Index(Status userStatus)
         {
             var db = new ApplicationDbContext();
-            var temp = User.Identity.GetUserId();
+            //userStatus.userId = User.Identity.GetUserId();
 
-            UpdateModel(s);
-            //db.userStatuses.Add(status);
+            userStatus.timeCreated = System.DateTime.Now;
+            db.userStatuses.Add(userStatus);
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 
