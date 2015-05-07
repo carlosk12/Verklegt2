@@ -24,7 +24,6 @@ namespace StalkBook.Controllers
         {
             var db = new ApplicationDbContext();
             userStatus.userId = User.Identity.GetUserId();
-
             userStatus.timeCreated = System.DateTime.Now;
             db.userStatuses.Add(userStatus);
             db.SaveChanges();
