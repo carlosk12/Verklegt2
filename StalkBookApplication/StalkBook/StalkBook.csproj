@@ -178,6 +178,9 @@
     <Compile Include="Entity\Stalking.cs" />
     <Compile Include="Entity\Status.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\GroupService.cs" />
+    <Compile Include="Service\NewsfeedService.cs" />
+    <Compile Include="Service\ProfileService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

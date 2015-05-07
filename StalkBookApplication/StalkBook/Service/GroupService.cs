@@ -7,5 +7,6 @@ namespace StalkBook.Service
 {
     public class GroupService
     {
+
     }
 }
