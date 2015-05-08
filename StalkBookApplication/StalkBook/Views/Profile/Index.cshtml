@@ -6,17 +6,16 @@
 
 <h2>Profile Index</h2>
 
-<div>
+<div class="profile-info">
     <p>@Model.name</p>
-    <p>Created: @Model.creationDate.Day/@Model.creationDate.Month/@Model.creationDate.Year </p>  
-      
+    <p>Created: @Model.creationDate.Day/@Model.creationDate.Month/@Model.creationDate.Year </p>       
 </div>
 
 <div class="all-statuses">
     @foreach (var item in Model.userStatuses)
     {
         <div class="status-body">
-            <p>@item.fullName</p>
+            <p class="status-full-name">@item.fullName</p>
             <p>@item.timeCreated.Date.ToShortDateString() @item.timeCreated.ToShortTimeString()</p>
             <p>@item.body</p>
         </div>

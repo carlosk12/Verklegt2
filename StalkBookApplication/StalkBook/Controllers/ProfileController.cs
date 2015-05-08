@@ -12,7 +12,7 @@ namespace StalkBook.Controllers
     public class ProfileController : Controller
     {
         // GET: Profile
-		public ActionResult MyProfile()
+		public ActionResult Index()
         {
 			var service = new ProfileService();
 
