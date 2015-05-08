@@ -151,7 +151,7 @@ namespace StalkBook.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, fullName = model.fullName, dateCreated = DateTime.Now.Date};
+				var user = new ApplicationUser { UserName = model.Email, Email = model.Email, fullName = model.fullName, dateCreated = DateTime.Now };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -170,7 +170,7 @@ namespace StalkBook.Controllers
 
             // If we got this far, something failed, redisplay form
             return View("Register", "_Layout2", model);
-        }
+		}
 
         //
         // GET: /Account/ConfirmEmail
