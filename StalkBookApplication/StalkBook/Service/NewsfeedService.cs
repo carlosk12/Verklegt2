@@ -27,7 +27,7 @@ namespace StalkBook.Service
                                     where s.userId == userID
                                     select s.stalkedId.ToString()).ToList();
 
-            var result = from us in db.userStatuses where result1.Contains(us.userId) select us;
+            var result = (from us in db.userStatuses where result1.Contains(us.userId) orderby us.timeCreated descending select us).Take(25);
 
             // For debugging purposes
             foreach (var item in result)
