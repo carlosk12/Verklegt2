@@ -23,9 +23,17 @@ namespace StalkBook.Service
 
 		public IEnumerable<Status> getAllStatuses(string userID)
 		{
-			IEnumerable<Status>;
 
-			return value;
+			IEnumerable<Status> result = from p in db.userStatuses
+                                         join s in db.profiles on p.userId equals s.userID
+                                         select p;
+
+            foreach (var item in result)
+            {
+                System.Diagnostics.Debug.WriteLine(item.body);
+            }
+
+			return result;
 		}
     }
 }
