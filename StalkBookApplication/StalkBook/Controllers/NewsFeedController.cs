@@ -40,6 +40,21 @@ namespace StalkBook.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        [HttpPost]
+        public ActionResult Search(FormCollection formCollection)
+        {
+            var db = new ApplicationDbContext();
+            var users = from u in db.profiles
+                         select u;
+            string searchString = "Ingimar";
+            //var searchString = FormCollection.Get("mysearch");
 
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                users = users.Where(s => s.name.Contains(searchString));
+            }
+
+            return View(users);
+        }
     }
 }

@@ -3,13 +3,6 @@
     background-color: #BBEAED
 }
 
-input[type=search]
-{
-    position: relative;
-    left:230px;
-    top:15px;
-}
-
 .newsfeed-box
 {
     width: 280px;
@@ -21,6 +14,20 @@ input[type=search]
 button[type=submit]
 {
     float:right;
+}
+
+.search
+{
+    position: fixed;
+    left: 40%;
+    top: 3%;
+}
+
+.search-button 
+{
+  position: fixed;
+  left: 54%;
+  top: 3%;
 }
 
 .navbar

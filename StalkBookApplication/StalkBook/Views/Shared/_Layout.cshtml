@@ -25,7 +25,12 @@
                     <li>@Html.ActionLink("Profile", "Index", "Profile")</li>
                     <li>@Html.ActionLink("Group", "Index", "Group")</li>
                 </ul>
-                <input type=search placeholder=Search... name=mysearch class="search">
+                <div class="search">                 
+                    <form role="form" method="get" action="Newsfeed/Search">
+                        <input type=search id="mysearch" placeholder=Search... name=mysearch class="search">
+                        <input type="submit" value="Search" class="search-button btn btn-default btn-xs">
+                    </form>
+                </div>     
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
