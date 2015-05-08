@@ -17,7 +17,9 @@
 <div class="all-statuses">
     @foreach (var item in Model.availableStatuses)
     {
-        <p>@item.body</p>
+        <div class="status-body">
+            <p>@item.body</p>
+        </div>     
     }
 </div>
 

@@ -11,5 +11,6 @@ namespace StalkBook.Models
         public int ID { get; set; }
         public string name { get; set; }
         public DateTime timeCreated { get; set; }
+        public string ownerId { get; set; }
     }
 }
