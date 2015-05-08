@@ -23,7 +23,11 @@
     @foreach (var item in Model.availableStatuses)
     {
         <div class="status-body">
+<<<<<<< HEAD
             <p>@Html.ActionLink(item.fullName, "GetProfile", "Profile", new {Id = item.userId}, null)</p>
+=======
+            <p class="status-fullName">@item.fullName</p>
+>>>>>>> origin/master
             <p>@item.timeCreated.Date.ToShortDateString() @item.timeCreated.ToShortTimeString()</p>
             <p>@item.body</p>
         </div>     

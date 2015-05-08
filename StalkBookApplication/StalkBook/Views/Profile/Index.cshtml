@@ -17,7 +17,11 @@
     @foreach (var item in Model.userStatuses)
     {
         <div class="status-body">
+<<<<<<< HEAD
             <p class="status-full-name">@Html.ActionLink(item.fullName, "GetProfile", "Profile", new { Id = item.userId }, null)</p>
+=======
+            <p class="status-fullName">@item.fullName</p>
+>>>>>>> origin/master
             <p>@item.timeCreated.Date.ToShortDateString() @item.timeCreated.ToShortTimeString()</p>
             <p>@item.body</p>
         </div>
