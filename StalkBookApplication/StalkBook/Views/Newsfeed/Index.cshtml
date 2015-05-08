@@ -23,7 +23,7 @@
     @foreach (var item in Model.availableStatuses)
     {
         <div class="status-body">
-            <p>@item.fullName</p>
+            <p class="status-fullName">@item.fullName</p>
             <p>@item.timeCreated.Date.ToShortDateString() @item.timeCreated.ToShortTimeString()</p>
             <p>@item.body</p>
         </div>     
