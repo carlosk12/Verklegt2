@@ -1,4 +1,4 @@
-﻿@model  StalkBook.Models.Status
+﻿@model  StalkBook.Models.StatusViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -15,7 +15,10 @@
 </div>
 
 <div class="all-statuses">
-
+    @foreach (var item in Model.availableStatuses)
+    {
+        <p>@item.body</p>
+    }
 </div>
 
 

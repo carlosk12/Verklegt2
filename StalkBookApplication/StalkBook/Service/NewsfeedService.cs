@@ -21,11 +21,21 @@ namespace StalkBook.Service
             return value;
         }
 
-		public IEnumerable<Status> getAllStatuses(string userID)
+		public IEnumerable<Status> getAllAvailableStatuses(string userID)
 		{
-			IEnumerable<Status>;
+            List<string> result1 = (from s in db.stalking
+                                    where s.userId == userID
+                                    select s.stalkedId.ToString()).ToList();
 
-			return value;
+            var result = from us in db.userStatuses where result1.Contains(us.userId) select us;
+
+            // For debugging purposes
+            foreach (var item in result)
+            {
+                System.Diagnostics.Debug.WriteLine(item.body);
+            }
+
+			return result;
 		}
     }
 }
