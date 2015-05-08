@@ -12,6 +12,8 @@
       
 </div>
 
+@{Html.RenderPartial("~/Views/Newsfeed/StatusPartial.cshtml", Model.userStatuses);}
+
 @foreach (var item in Model.userStatuses)
 {
     <p>@item.body</p>
