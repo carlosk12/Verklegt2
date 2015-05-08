@@ -15,6 +15,6 @@ namespace StalkBook.Models
 		public string urlToPic { get; set; }
 		public int upvotes { get; set; }
 		public int downvotes { get; set; }
-
+        public string fullName { get; set; }
 	}
 }

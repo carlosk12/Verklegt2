@@ -15,7 +15,13 @@ namespace StalkBook.Controllers
         // GET: NewsFeed
         public ActionResult Index()
         {
-            return View();
+            var service = new NewsfeedService();
+
+            var statuses = service.getAllAvailableStatuses(User.Identity.GetUserId());
+            var model = new StatusViewModel();
+            model.availableStatuses = statuses;
+
+            return View(model);
         }
 
 
@@ -23,10 +29,13 @@ namespace StalkBook.Controllers
         public ActionResult Index(Status userStatus)
         {
             var db = new ApplicationDbContext();
-
             string theUserId = User.Identity.GetUserId();
             userStatus.userId = User.Identity.GetUserId();
             userStatus.timeCreated = System.DateTime.Now;
+            var fullName = (from p in db.profiles
+                                  where p.userID == theUserId
+                                  select p.name).SingleOrDefault();
+            userStatus.fullName = fullName;
             db.userStatuses.Add(userStatus);
             db.SaveChanges();
             return RedirectToAction("Index");
