@@ -8,6 +8,7 @@ using Microsoft.AspNet.Identity;
 
 namespace StalkBook.Controllers
 {
+    [Authorize]
     public class ProfileController : Controller
     {
         // GET: Profile
