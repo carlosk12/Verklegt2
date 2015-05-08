@@ -36,7 +36,7 @@ namespace StalkBook.Controllers
          
             foreach (var item in result)
             {
-                System.Diagnostics.Debug.WriteLine(result);
+                System.Diagnostics.Debug.WriteLine(item.body);
             }
 
             //someValues.ToList().ForEach(x => list.Add(x + 1));                              
