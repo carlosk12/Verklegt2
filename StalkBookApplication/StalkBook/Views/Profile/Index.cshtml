@@ -12,7 +12,12 @@
       
 </div>
 
-@foreach (var item in Model.userStatuses)
-{
-    <p>@item.body</p>
-}
+<div class="all-statuses">
+    @foreach (var item in Model.userStatuses)
+    {
+        <div class="status-body">
+            <p>@item.fullName</p>
+            <p>@item.body</p>
+        </div>
+    }
+</div>
