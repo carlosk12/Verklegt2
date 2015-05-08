@@ -30,14 +30,16 @@ namespace StalkBook.Service
 			return result;
 		}
 
-		public ProfileViewModel getProfile(int id)
+		public ProfileViewModel getProfileByID(int id)
 		{
 			var profileInfo = (from p in db.profiles
 							   where p.ID == id
 							   select p).FirstOrDefault();
 
+			System.Diagnostics.Debug.Write(profileInfo.userID);
+
 			List<Status> myStatuses = (from s in db.userStatuses
-									   where profileInfo.userID == s.userId
+									   where s.userId == profileInfo.userID
 									   orderby s.timeCreated descending
 									   select s).ToList();
 

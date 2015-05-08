@@ -40,6 +40,5 @@ namespace StalkBook.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
     }
 }

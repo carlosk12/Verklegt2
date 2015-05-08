@@ -21,7 +21,7 @@ namespace StalkBook.Controllers
             return View("Index", model);
         }
 
-		public ActionResult GetProfile(int Id)
+		public ActionResult GetProfile(string Id)
 		{
 			var service = new ProfileService();
 

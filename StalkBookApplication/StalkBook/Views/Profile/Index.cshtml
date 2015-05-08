@@ -2,7 +2,9 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 
 <h2>Profile Index</h2>
 
@@ -15,7 +17,7 @@
     @foreach (var item in Model.userStatuses)
     {
         <div class="status-body">
-            <p class="status-full-name">@item.fullName</p>
+            <p class="status-full-name">@Html.ActionLink(item.fullName, "GetProfile", "Profile", new { Id = item.userId }, null)</p>
             <p>@item.timeCreated.Date.ToShortDateString() @item.timeCreated.ToShortTimeString()</p>
             <p>@item.body</p>
         </div>
