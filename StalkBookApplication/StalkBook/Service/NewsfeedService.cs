@@ -21,10 +21,10 @@ namespace StalkBook.Service
             return value;
         }
 
-		public IEnumerable<Status> getAllAvailableStatuses(string userID)
+		public IEnumerable<Status> getAllAvailableStatuses(string userId)
 		{
             List<string> result1 = (from s in db.stalking
-                                    where s.userId == userID
+                                    where s.userId == userId
                                     select s.stalkedId.ToString()).ToList();
 
             var result = (from us in db.userStatuses where result1.Contains(us.userId) orderby us.timeCreated descending select us).Take(25);
@@ -37,5 +37,36 @@ namespace StalkBook.Service
 
 			return result;
 		}
+
+        public SearchViewModel search(string userId, string searchString)
+        {
+            var model = new SearchViewModel();
+            var profiles = from u in db.profiles
+                           select u;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                profiles = profiles.Where(s => s.name.Contains(searchString));
+            }
+            model.searchResult = profiles.ToList();
+            model.stalking = (from s in db.stalking
+                              where s.userId == userId
+                              select s.stalkedId).ToList();
+            model.userId = userId;
+
+            return model;
+        }
+
+        public void postStatus(string userId, Status userStatus)
+        {
+            userStatus.userId = userId;
+            userStatus.timeCreated = System.DateTime.Now;
+            var fullName = (from p in db.profiles
+                            where p.userID == userId
+                            select p.name).SingleOrDefault();
+            userStatus.fullName = fullName;
+            db.userStatuses.Add(userStatus);
+            db.SaveChanges();
+        }
     }
 }
