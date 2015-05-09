@@ -42,7 +42,7 @@ button[type=submit]
     color: rgb(255, 255, 255);
 }
 
-.status-body
+.content
 {
     background-color: white;
     width: 380px;
@@ -52,15 +52,32 @@ button[type=submit]
     border-style: solid;
     border-color: black;
     border-width: thin;
+    padding-left: 10px;
+    padding-top: 5px;
 }
 
-.status-fullName
+.status-body
 {
-    font-weight:bolder;
+    padding-bottom: 6px;
+    padding-top: 6px;
+}
+
+.search-body
+{
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 .search-fullName
 {
     display:inline;
+}
+
+.stalk-button
+{
+    float: right;
+    position: relative;
+    top: -5px;
+    right: 8px;
 }
 

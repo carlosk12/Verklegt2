@@ -9,15 +9,15 @@
 <div class="search-profiles">
     @foreach (var item in Model.searchResult)
     {
-        <div class="status-body">
+        <div class="search-body content">
             <p class="search-fullName">@Html.ActionLink(item.name, "GetProfile", "Profile", new { Id = item.userID }, null)</p>
             @if (Model.stalking.Contains(item.userID))
             {
-                <button class="btn btn-default" onclick="stalk()">Stalking</button>
+                <button class="btn btn-primary btn-sm stalk-button" onclick="stalk()">Stalking</button>
             }
             else
             {
-               <button class="btn btn-default" onclick="stopStalking()">Stalk</button>
+               <button class="btn btn-default btn-sm stalk-button" onclick="stopStalking()">Stalk</button>
             }
         </div>
     }
