@@ -52,7 +52,6 @@ button[type=submit]
     border-style: solid;
     border-color: black;
     border-width: thin;
-
 }
 
 .status-fullName
@@ -60,4 +59,8 @@ button[type=submit]
     font-weight:bolder;
 }
 
+.search-fullName
+{
+    display:inline;
+}
 

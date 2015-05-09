@@ -1,0 +1,24 @@
+﻿@model StalkBook.Models.SearchViewModel
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+
+<div class="search-profiles">
+    @foreach (var item in Model.searchResult)
+    {
+        <div class="status-body">
+            <p class="search-fullName">@Html.ActionLink(item.name, "GetProfile", "Profile", new { Id = item.userID }, null)</p>
+            @if (Model.stalking.Contains(item.userID))
+            {
+                <button class="btn btn-default" onclick="stalk()">Stalking</button>
+            }
+            else
+            {
+               <button class="btn btn-default" onclick="stopStalking()">Stalk</button>
+            }
+        </div>
+    }
+</div>

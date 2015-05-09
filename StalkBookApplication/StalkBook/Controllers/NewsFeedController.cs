@@ -41,20 +41,25 @@ namespace StalkBook.Controllers
             return RedirectToAction("Index");
         }
         [HttpPost]
-        public ActionResult Search(FormCollection formCollection)
+        public ActionResult Search(string searchString)
         {
             var db = new ApplicationDbContext();
-            var users = from u in db.profiles
+            var model = new SearchViewModel();
+            string theUserId = User.Identity.GetUserId();
+            var profiles = from u in db.profiles
                          select u;
-            string searchString = "Ingimar";
-            //var searchString = FormCollection.Get("mysearch");
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                users = users.Where(s => s.name.Contains(searchString));
+                profiles = profiles.Where(s => s.name.Contains(searchString));
             }
+            model.searchResult = profiles.ToList();
+            model.stalking = (from s in db.stalking
+                             where s.userId == theUserId
+                             select s.stalkedId).ToList();
+            model.userId = theUserId;
 
-            return View(users);
+            return View(model);
         }
     }
 }
