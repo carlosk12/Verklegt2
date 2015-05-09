@@ -26,12 +26,15 @@
                     <li>@Html.ActionLink("Profile", "Index", "Profile")</li>
                     <li>@Html.ActionLink("Group", "Index", "Group")</li>
                 </ul>
-                <div class="search">                 
-                    <form role="form" method="post" action="~/Newsfeed/Search">
-                        <input type=search id="mysearch" placeholder=Search... name=searchString class="search">
-                        <input type="submit" value="Search" class="search-button btn btn-default btn-xs">
-                    </form>
-                </div>     
+                <div class="search-box">
+                    <div class="search">
+                        <form role="form" method="post" action="~/Newsfeed/Search">
+                            <input type=search id="mysearch" placeholder=Search... name=searchString class="search">
+                            <input type="submit" value="Search" class="search-button btn btn-default btn-xs">
+                        </form>
+                    </div> 
+                </div>
+                    
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
