@@ -16,7 +16,7 @@ namespace StalkBook.Controllers
         // GET: NewsFeed
         public ActionResult Index()
         {
-            var statuses = service.getAllAvailableStatuses(User.Identity.GetUserId());
+            var statuses = service.GetAllAvailableStatuses(User.Identity.GetUserId());
             var model = new StatusViewModel();
             model.availableStatuses = statuses;
 
@@ -28,7 +28,7 @@ namespace StalkBook.Controllers
         public ActionResult Index(Status userStatus)
         {
             string theUserId = User.Identity.GetUserId();
-            service.postStatus(theUserId, userStatus);
+            service.PostStatus(theUserId, userStatus);
 
             return RedirectToAction("Index");
         }
@@ -36,7 +36,7 @@ namespace StalkBook.Controllers
         public ActionResult Search(string searchString)
         {
             string theUserId = User.Identity.GetUserId();
-            var model = service.search(theUserId, searchString);
+            var model = service.Search(theUserId, searchString);
             
             return View(model);
         }

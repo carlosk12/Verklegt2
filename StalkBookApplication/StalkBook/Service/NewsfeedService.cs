@@ -12,7 +12,7 @@ namespace StalkBook.Service
     {
 		private ApplicationDbContext db = new ApplicationDbContext();
 
-        public IEnumerable<Status> getMyStatuses(string userId)
+        public IEnumerable<Status> GetMyStatuses(string userId)
         {
 			IEnumerable<Status> value = (	from p in db.userStatuses
 											where p.userId == userId            
@@ -21,7 +21,7 @@ namespace StalkBook.Service
             return value;
         }
 
-		public IEnumerable<Status> getAllAvailableStatuses(string userId)
+		public IEnumerable<Status> GetAllAvailableStatuses(string userId)
 		{
             List<string> result1 = (from s in db.stalking
                                     where s.userId == userId
@@ -38,7 +38,7 @@ namespace StalkBook.Service
 			return result;
 		}
 
-        public SearchViewModel search(string userId, string searchString)
+        public SearchViewModel Search(string userId, string searchString)
         {
             var model = new SearchViewModel();
             var profiles = from u in db.profiles
@@ -57,7 +57,7 @@ namespace StalkBook.Service
             return model;
         }
 
-        public void postStatus(string userId, Status userStatus)
+        public void PostStatus(string userId, Status userStatus)
         {
             userStatus.userId = userId;
             userStatus.timeCreated = System.DateTime.Now;
