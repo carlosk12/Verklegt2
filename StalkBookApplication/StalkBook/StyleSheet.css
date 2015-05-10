@@ -47,7 +47,7 @@ button[type=submit]
     border-style: solid;
     border-color: black;
     border-width: thin;
-    padding-left: 10px;
+    padding-left: 35px;
     padding-top: 5px;
 }
 
@@ -76,3 +76,32 @@ button[type=submit]
     right: 8px;
 }
 
+.status-picture
+{
+    width: 340px;
+    height: 200px;
+}
+
+.upvoted
+{
+  background-image: url("http://www.redditstatic.com/sprite-reddit.EMWQffWtZwo.png");
+  background-position: -83px -818px;
+  background-repeat: no-repeat;
+  height: 15px;
+  width: 17px;
+  position: relative;
+  right: 25px;
+  top: 17px;
+}
+
+.downvoted 
+{
+  background-image: url("http://www.redditstatic.com/sprite-reddit.EMWQffWtZwo.png");
+  background-position: -41px -818px;
+  background-repeat: no-repeat;
+  height: 15px;
+  width: 17px;
+  position: relative;
+  right: 25px;
+  top: 36px;
+}

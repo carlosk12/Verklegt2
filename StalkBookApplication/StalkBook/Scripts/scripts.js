@@ -4,7 +4,7 @@
     {
         if ($(this).text() == "Stalk")
         {
-            $.post('/Stalk/Stalk/', { stalkId: $(this).closest('.search-body').attr('id') },
+            $.post('/Stalk/Stalk/', { stalkId: $(this).closest('.search-body').data('id') },
             function ()
             {
 
@@ -17,7 +17,7 @@
         }
         else
         {
-            $.post('/Stalk/stopStalkingUser/', { stalkId: $(this).closest('.search-body').attr('id') },
+            $.post('/Stalk/stopStalkingUser/', { stalkId: $(this).closest('.search-body').attr('data-id') },
             function ()
             {
 
@@ -28,5 +28,5 @@
             });
             $(this).text("Stalk").addClass('btn-default').removeClass('btn-primary');
         }
-    });      
+    });
 });

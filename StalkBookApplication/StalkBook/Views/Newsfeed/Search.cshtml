@@ -9,7 +9,7 @@
 <div class="search-profiles">
     @foreach (var item in Model.searchResult)
     {
-        <div id="@item.userID" class="search-body content">
+        <div data-id="@item.userID" class="search-body content">
             <p class="search-fullName">@Html.ActionLink(item.name, "GetProfile", "Profile", new { Id = item.userID }, null)</p>
             @if (Model.userId != item.userID)
             {

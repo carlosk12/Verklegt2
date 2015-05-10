@@ -61,10 +61,13 @@ namespace StalkBook.Service
         {
             userStatus.userId = userId;
             userStatus.timeCreated = System.DateTime.Now;
-            var fullName = (from p in db.profiles
+			userStatus.fullName = (from p in db.profiles
                             where p.userID == userId
                             select p.name).SingleOrDefault();
-            userStatus.fullName = fullName;
+			if(!String.IsNullOrEmpty(userStatus.urlToPic))
+			{
+				userStatus.urlToPic = userStatus.urlToPic;
+			}			
             db.userStatuses.Add(userStatus);
             db.SaveChanges();
         }
