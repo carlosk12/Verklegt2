@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
+using StalkBook.Entity;
 
 namespace StalkBook.Models
 {
@@ -28,8 +29,8 @@ namespace StalkBook.Models
 		public DbSet<Group> groups { get; set; }
 		public DbSet<Profile> profiles { get; set; }
 		public DbSet<GroupProfileFK> groupProfileFks { get; set; }
-		public DbSet<Stalkers> stalkers { get; set; }
 		public DbSet<Stalking> stalking { get; set; }
+        public DbSet<UserStatusRating> userStatusRating { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

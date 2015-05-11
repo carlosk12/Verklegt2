@@ -17,9 +17,15 @@
     @foreach (var item in Model.userStatuses)
     {
         <div class="content">
+            <div class="upvoted" role="button" tabindex="0"></div>
+            <div class="downvoted" role="button" tabindex="0"></div>
             <p class="status-full-name">@Html.ActionLink(item.fullName, "GetProfile", "Profile", new { Id = item.userId }, null)</p>
             <p>@item.timeCreated.Date.ToShortDateString() @item.timeCreated.ToShortTimeString()</p>
             <p>@item.body</p>
+            @if (!String.IsNullOrEmpty(item.urlToPic))
+            {
+                <img class="status-picture" src="@Url.Content(item.urlToPic)" alt="Image" />
+            } 
         </div>
     }
 </div>

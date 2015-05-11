@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using System.ComponentModel.DataAnnotations;
+using StalkBook.Entity;
 
 namespace StalkBook.Models
 {
@@ -20,6 +21,7 @@ namespace StalkBook.Models
         public int downvotes { get; set; }
         public string fullName { get; set; }
         public IEnumerable<Status> availableStatuses { get; set; }
+        public IEnumerable<UserStatusRating> myRatings { get; set; }
 
     }
 }

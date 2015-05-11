@@ -177,7 +177,6 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Entity\Profile.cs" />
-    <Compile Include="Entity\Stalkers.cs" />
     <Compile Include="Entity\Stalking.cs" />
     <Compile Include="Entity\Status.cs" />
     <Compile Include="Models\ProfileViewModel.cs" />
