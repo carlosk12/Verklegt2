@@ -146,3 +146,25 @@ button[type=submit]
   right: 61px;
   top: 29px;
 }
+
+.profile-info
+{
+    padding: 35px 0;
+    margin-left: auto;
+    margin-right: auto; 
+    width: 256px;
+    text-align: center;
+}
+
+.profile-picture
+{
+    padding-bottom: 10px;
+    width: 256px;
+    height: auto;   
+}
+
+.profile-picture-icon
+{
+    width: 40px;
+    height: 40px;
+}
