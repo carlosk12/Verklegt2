@@ -9,6 +9,7 @@ using StalkBook.Entity;
 
 namespace StalkBook.Service
 {
+    enum Ratings { Neutral = 0, Upvote = 1, Downvote = 2};
     public class NewsfeedService
     {
 		private ApplicationDbContext db = new ApplicationDbContext();
@@ -74,6 +75,68 @@ namespace StalkBook.Service
                          select r).ToList();
 
             return result;
+        }
+
+        public void UpdateRating(string userId, int currRating, string arrowDirection, int statusId)
+        {
+            var myRating = (from r in db.userStatusRating
+                            where r.userId == userId
+                            where r.statusId == statusId
+                            select r).SingleOrDefault();
+            var result = new UserStatusRating();
+            var status = (from s in db.userStatuses
+                          where s.ID == statusId
+                          select s).SingleOrDefault();
+
+            if(arrowDirection == "up" && currRating != (int)Ratings.Upvote)
+            {
+                result.rating = (int)Ratings.Upvote;
+                result.statusId = statusId;
+                result.userId = userId;
+                if(currRating == (int)Ratings.Downvote)
+                {
+                    status.downvotes--;
+                }
+                status.upvotes++;         
+            }
+            else if (arrowDirection == "down" && currRating != (int)Ratings.Downvote)
+            {
+                result.rating = (int)Ratings.Downvote;
+                result.statusId = statusId;
+                result.userId = userId;
+                if(currRating == (int)Ratings.Upvote)
+                {
+                    status.upvotes--;
+                }
+                status.downvotes++;
+            }
+            else
+            {
+                result.rating = (int)Ratings.Neutral;
+                result.statusId = statusId;
+                result.userId = userId;
+                if (arrowDirection == "up")
+                {
+                    status.upvotes--;
+                }
+                else
+                {
+                    status.downvotes--;
+                }
+            }
+
+            
+
+            if(myRating != null)
+            {
+                myRating.rating = result.rating;
+            }
+            else
+            {
+                db.userStatusRating.Add(result);
+            }
+
+            db.SaveChanges();
         }
     }
 }

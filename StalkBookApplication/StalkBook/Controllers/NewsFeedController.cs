@@ -43,12 +43,12 @@ namespace StalkBook.Controllers
         }
 
         [HttpPost]
-        public ActionResult RateStatus(int currRating, string arrowDirection)
+        public ActionResult RateStatus(int currRating, string arrowDirection, int statusId)
         {
             string theUserId = User.Identity.GetUserId();
-            var model = service.Search(theUserId, arrowDirection);
+            service.UpdateRating(theUserId, currRating, arrowDirection, statusId);
 
-            return View(model);
+            return new EmptyResult();
         }
     }
 }

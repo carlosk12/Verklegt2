@@ -107,7 +107,8 @@ button[type=submit]
   width: 17px;
   position: relative;
   right: 45px;
-  top: 47px;
+  top: 33px;
+  font-size: 0;
 }
 
 .neutral-up
@@ -134,7 +135,8 @@ button[type=submit]
   width: 17px;
   position: relative;
   right: 45px;
-  top: 47px;
+  top: 33px;
+  font-size: 0;
 }
 
 .status-rating
