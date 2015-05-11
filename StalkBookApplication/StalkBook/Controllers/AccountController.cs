@@ -87,7 +87,7 @@ namespace StalkBook.Controllers
                 case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
+                    return View("Login", "_Layout2", model);
             }
         }
 
