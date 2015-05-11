@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using StalkBook.Models;
+using StalkBook.Service;
 
 namespace StalkBook.Controllers
 {
@@ -55,7 +56,8 @@ namespace StalkBook.Controllers
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
+				message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
+				: message == ManageMessageId.ChangeEmailSuccess ? "Your email has been changed."
                 : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
                 : message == ManageMessageId.SetTwoFactorSuccess ? "Your two-factor authentication provider has been set."
                 : message == ManageMessageId.Error ? "An error has occurred."
@@ -210,6 +212,27 @@ namespace StalkBook.Controllers
             }
             return RedirectToAction("Index", new { Message = ManageMessageId.RemovePhoneSuccess });
         }
+
+		public ActionResult ChangeEmail()
+		{
+			return View();
+		}
+
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public ActionResult ChangeEmail(ChangeEmailViewModel model)
+		{
+			if(!ModelState.IsValid)
+			{
+				return View(model);
+			}
+
+			var service = new ManageService();
+
+			service.ChangeEmail(User.Identity.GetUserId(), model.newEmail);
+
+			return RedirectToAction("Index", new { Message = ManageMessageId.ChangeEmailSuccess });
+		}
 
         //
         // GET: /Manage/ChangePassword
@@ -374,6 +397,7 @@ namespace StalkBook.Controllers
         public enum ManageMessageId
         {
             AddPhoneSuccess,
+			ChangeEmailSuccess,
             ChangePasswordSuccess,
             SetTwoFactorSuccess,
             SetPasswordSuccess,

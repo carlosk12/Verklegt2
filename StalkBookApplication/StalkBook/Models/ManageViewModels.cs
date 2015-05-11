@@ -39,6 +39,14 @@ namespace StalkBook.Models
         public string ConfirmPassword { get; set; }
     }
 
+	public class ChangeEmailViewModel
+	{
+		[Required]
+		[DataType(DataType.EmailAddress)]
+		[Display(Name = "New Email")]
+		public string newEmail { get; set; }
+	}
+
     public class ChangePasswordViewModel
     {
         [Required]
