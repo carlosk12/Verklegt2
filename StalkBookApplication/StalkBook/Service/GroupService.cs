@@ -9,14 +9,18 @@ namespace StalkBook.Service
     public class GroupService
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
-        public IEnumerable<Group> getAllGroups()
+/*
+        public IEnumerable<Group> GetMyGroups(string userId)
         {
-            IEnumerable<Group> value = (from p in db.groups
-                select p);
+            
+
+            IEnumerable<Group> value = (from p in db.groupProfileFks
+                                         where p.profileID == 
+                                         select p).Take(20);
 
             return value;
         }
+*/        
 
     }
 }
