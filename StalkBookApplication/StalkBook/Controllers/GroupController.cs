@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using StalkBook.Models;
+using StalkBook.Service;
 
 namespace StalkBook.Controllers
 {
     [Authorize]
     public class GroupController : Controller
     {
+        private GroupService service = new GroupService();
         // GET: Group
         public ActionResult Index()
         {
@@ -17,13 +20,11 @@ namespace StalkBook.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(Group group)
+        public ActionResult Index(Group groupName)
         {
-            var db = new ApplicationDbContext();
-            group.name = group.name;
-            group.timeCreated = DateTime.Now;
-            db.groups.Add(group);
-            db.SaveChanges();
+            string theUserId = User.Identity.GetUserId();
+            service.CreateGroup(theUserId, groupName);
+
             return RedirectToAction("Index");
         }
     }
