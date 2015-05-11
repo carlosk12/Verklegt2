@@ -5,12 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Profile Index</h2>
-
 <div class="profile-info">
-    <a href="@Url.Content(Model.profilePicUrl)"><img class="profile-picture" src="@Url.Content(Model.profilePicUrl)" alt="Profile Picture"/></a>
-    <p>@Model.name</p>
-    <p>Created: @Model.creationDate.Day/@Model.creationDate.Month/@Model.creationDate.Year </p>       
+    <a class ="profile-picture-anchor" href="@Url.Content(Model.profilePicUrl)"><img class="profile-picture" src="@Url.Content(Model.profilePicUrl)" alt="Profile Picture"/></a>
+    <h3>@Model.name</h3>
+    <p>Started stalking: @Model.creationDate.Day.@Model.creationDate.Month.@Model.creationDate.Year </p>       
 </div>
 
 <div class="all-statuses">
@@ -19,6 +17,7 @@
         <div class="content">
             <div class="upvoted" role="button" tabindex="0"></div>
             <div class="downvoted" role="button" tabindex="0"></div>
+            <img class="profile-picture-icon" href="@Url.Content(Model.profilePicUrl)" alt="Profile Picture Icon"/>
             <p class="status-full-name">@Html.ActionLink(item.fullName, "GetProfile", "Profile", new { Id = item.userId }, null)</p>
             <p>@item.timeCreated.Date.ToShortDateString() @item.timeCreated.ToShortTimeString()</p>
             <p>@item.body</p>
