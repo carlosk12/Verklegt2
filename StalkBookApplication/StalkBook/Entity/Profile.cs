@@ -11,6 +11,7 @@ namespace StalkBook.Models
 		public string name { get; set; }
 		public DateTime creationDate { get; set; }
 		public string userID { get; set; }
+		public string profilePicUrl { get; set; }
 		/*public List<int> stalkersIDs{ get; set; }
 		public List<int> stalkingIDs{ get; set; }
 		public List<int> groupsIDs{ get; set; }*/

@@ -68,6 +68,10 @@ namespace StalkBook.Models
 		[Display(Name = "Full Name")]
 		public string fullName { get; set; }
 
+		[Url]
+		[Display(Name = "Profile Picture")]
+		public string profileUrlPic { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

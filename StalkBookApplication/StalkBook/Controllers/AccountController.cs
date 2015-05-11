@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using StalkBook.Models;
+using StalkBook.Service;
 
 namespace StalkBook.Controllers
 {
@@ -153,6 +154,10 @@ namespace StalkBook.Controllers
             {
 				var user = new ApplicationUser { UserName = model.Email, Email = model.Email, fullName = model.fullName, dateCreated = DateTime.Now };
                 var result = await UserManager.CreateAsync(user, model.Password);
+
+				var profile = new ProfileService();
+				profile.addProfilePicUrl( user.Id, model.profileUrlPic);
+
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);

@@ -26,6 +26,7 @@ namespace StalkBook.Service
             result.name = profileInfo.name;
             result.userStatuses = myStatuses;
             result.userID = profileInfo.userID;
+			result.profilePicUrl = profileInfo.profilePicUrl;
 
 			return result;
 		}
@@ -48,8 +49,29 @@ namespace StalkBook.Service
 			result.name = profileInfo.name;
 			result.userStatuses = myStatuses;
 			result.userID = profileInfo.userID;
+			result.profilePicUrl = profileInfo.profilePicUrl;
 
 			return result;
+		}
+
+		public void addProfilePicUrl(string userId, string url)
+		{
+			var db = new ApplicationDbContext();
+
+			var profile = (from p in db.profiles
+						   where p.userID == userId
+						   select p).SingleOrDefault();
+
+			if (String.IsNullOrEmpty(url))
+			{
+				profile.profilePicUrl = "https://a7b146f211da20455eacff07e84c48e5e1ba36e0.googledrive.com/host/0B6sTYcGVKmPpbGtNQzB2U05XbDA/Chrome%20Incognito%20Windows%20Icon.ico";
+			}
+			else
+			{
+				profile.profilePicUrl = url;
+			}
+
+			db.SaveChanges();
 		}
     }
 }

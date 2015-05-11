@@ -5,10 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
 <h2>Profile Index</h2>
 
 <div class="profile-info">
+    <a href="@Url.Content(Model.profilePicUrl)"><img class="profile-picture" src="@Url.Content(Model.profilePicUrl)" alt="Profile Picture"/></a>
     <p>@Model.name</p>
     <p>Created: @Model.creationDate.Day/@Model.creationDate.Month/@Model.creationDate.Year </p>       
 </div>
@@ -24,8 +24,10 @@
             <p>@item.body</p>
             @if (!String.IsNullOrEmpty(item.urlToPic))
             {
-                <img class="status-picture" src="@Url.Content(item.urlToPic)" alt="Image" />
-            } 
+                <a href="@Url.Content(item.urlToPic)">
+                    <img class="status-picture" src="@Url.Content(item.urlToPic)" alt="Image" />
+                </a>
+            }
         </div>
     }
 </div>
