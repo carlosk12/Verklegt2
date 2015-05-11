@@ -8,6 +8,7 @@ namespace StalkBook.Models
         public int ID { get; set; }
         public string name { get; set; }
         public DateTime creationDate { get; set; }
-        public List<Group> groups { get; set; }
+        public IEnumerable<Group> groups { get; set; }
+        
     }
 }

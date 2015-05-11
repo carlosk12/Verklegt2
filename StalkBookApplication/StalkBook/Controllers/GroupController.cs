@@ -16,7 +16,10 @@ namespace StalkBook.Controllers
         // GET: Group
         public ActionResult Index()
         {
-            return View();
+            var model = new GroupViewModel();
+            model.groups = service.GetGroupsByUserId(User.Identity.GetUserId());
+
+            return View(model);
         }
 
         [HttpPost]
