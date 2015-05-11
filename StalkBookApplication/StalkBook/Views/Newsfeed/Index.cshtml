@@ -22,17 +22,36 @@
 <div class="all-statuses">
    
     @foreach (var item in Model.availableStatuses)
-    {       
+    {
+        var statusRating = Model.myRatings.Where(s => s.statusId == item.ID).SingleOrDefault();
+        var rating = item.upvotes - item.downvotes;    
         <div class="content">
-            <div class="upvoted" role="button" tabindex="0"></div>
-            <div class="downvoted" role="button" tabindex="0"></div>
-            <p>@Html.ActionLink(item.fullName, "GetProfile", "Profile", new {Id = item.userId}, null)</p>
-            <p>@item.timeCreated.Date.ToShortDateString() @item.timeCreated.ToShortTimeString()</p>
-            <p>@item.body</p>
-            @if (!String.IsNullOrEmpty(item.urlToPic))
+            @if (statusRating == null)
             {
-                <img class="status-picture" src="@Url.Content(item.urlToPic)" alt="Image" />
-            }    
+                <div class="neutral-up" role="button" tabindex="0"></div>
+                <div class="neutral-down" role="button" tabindex="0"></div>
+            }
+            else if (statusRating.rating == 1)
+            {
+                <div class="upvoted" role="button" tabindex="0"></div>
+                <div class="neutral-down" role="button" tabindex="0"></div>
+            }
+            else
+            {
+                <div class="neutral-up" role="button" tabindex="0"></div>
+                <div class="downvoted" role="button" tabindex="0"></div>
+            }
+            <p class="status-rating">@rating</p>  
+            <div class="status-main">
+                <p>@Html.ActionLink(item.fullName, "GetProfile", "Profile", new { Id = item.userId }, null)</p>
+                <p>@item.timeCreated.Date.ToShortDateString() @item.timeCreated.ToShortTimeString()</p>
+                <p>@item.body</p>
+                @if (!String.IsNullOrEmpty(item.urlToPic))
+                {
+                    <img class="status-picture" src="@Url.Content(item.urlToPic)" alt="Image" />
+                }    
+            </div>                         
+            
         </div>     
     }
 </div>

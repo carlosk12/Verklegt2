@@ -12,6 +12,11 @@
     margin-top: 2%;
 }
 
+.status-main
+{
+    color:red;
+}
+
 button[type=submit]
 {
     float:right;
@@ -47,8 +52,7 @@ button[type=submit]
     border-style: solid;
     border-color: black;
     border-width: thin;
-    padding-left: 35px;
-    padding-top: 5px;
+    padding: 1px 35px 15px 35px;
 }
 
 .status-body
@@ -78,8 +82,8 @@ button[type=submit]
 
 .status-picture
 {
-    width: 340px;
-    height: 200px;
+    width: 300px;
+    height: auto;
 }
 
 .upvoted
@@ -87,6 +91,7 @@ button[type=submit]
   background-image: url("http://www.redditstatic.com/sprite-reddit.EMWQffWtZwo.png");
   background-position: -83px -818px;
   background-repeat: no-repeat;
+  display: inline-block;
   height: 15px;
   width: 17px;
   position: relative;
@@ -99,9 +104,44 @@ button[type=submit]
   background-image: url("http://www.redditstatic.com/sprite-reddit.EMWQffWtZwo.png");
   background-position: -41px -818px;
   background-repeat: no-repeat;
+  display: inline-block;
+  height: 15px;
+  width: 17px;
+  position: relative;
+  right: 45px;
+  top: 47px;
+}
+
+.neutral-up
+{
+  background-image: url("http://www.redditstatic.com/sprite-reddit.EMWQffWtZwo.png");
+  background-position: -62px -818px;
+  background-repeat: no-repeat;
+  display: inline-block;
   height: 15px;
   width: 17px;
   position: relative;
   right: 25px;
-  top: 36px;
+  top: 17px;
+}
+
+.neutral-down
+{
+  background-image: url("http://www.redditstatic.com/sprite-reddit.EMWQffWtZwo.png");
+  background-position: -20px -818px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 15px;
+  width: 17px;
+  position: relative;
+  right: 45px;
+  top: 47px;
+}
+
+.status-rating
+{
+  display: inline;
+  position: relative;
+  right: 61px;
+  top: 29px;
 }

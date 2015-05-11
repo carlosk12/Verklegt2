@@ -8,7 +8,6 @@ namespace StalkBook.Entity
 {
 	public class UserStatusRating
 	{
-		// StatusViewModel með List af UserStatusRating þar sem userId == User.Identity.GetId.
 		public int ID { get; set; }
 		public string userId { get; set; }
 		public int statusId { get; set; }

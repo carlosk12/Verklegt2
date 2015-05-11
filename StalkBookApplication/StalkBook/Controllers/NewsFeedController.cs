@@ -19,6 +19,7 @@ namespace StalkBook.Controllers
             var statuses = service.GetAllAvailableStatuses(User.Identity.GetUserId());
             var model = new StatusViewModel();
             model.availableStatuses = statuses;
+            model.myRatings = service.GetRatingByUserId(User.Identity.GetUserId());
 
             return View(model);
         }

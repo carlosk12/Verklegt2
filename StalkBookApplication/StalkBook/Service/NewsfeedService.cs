@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using StalkBook.Entity;
 
 namespace StalkBook.Service
 {
@@ -17,7 +18,7 @@ namespace StalkBook.Service
 			IEnumerable<Status> value = (	from p in db.userStatuses
 											where p.userId == userId            
 											select p).Take(20);
-
+          
             return value;
         }
 
@@ -28,12 +29,6 @@ namespace StalkBook.Service
                                     select s.stalkedId.ToString()).ToList();
 
             var result = (from us in db.userStatuses where result1.Contains(us.userId) orderby us.timeCreated descending select us).Take(25);
-
-            // For debugging purposes
-            foreach (var item in result)
-            {
-                System.Diagnostics.Debug.WriteLine(item.body);
-            }
 
 			return result;
 		}
@@ -70,6 +65,15 @@ namespace StalkBook.Service
 			}			
             db.userStatuses.Add(userStatus);
             db.SaveChanges();
+        }
+
+        public IEnumerable<UserStatusRating> GetRatingByUserId(string userId)
+        {
+            var result = (from r in db.userStatusRating
+                         where r.userId == userId
+                         select r).ToList();
+
+            return result;
         }
     }
 }
