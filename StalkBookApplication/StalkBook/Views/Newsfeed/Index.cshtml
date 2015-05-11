@@ -48,7 +48,9 @@
                 <p>@item.body</p>
                 @if (!String.IsNullOrEmpty(item.urlToPic))
                 {
-                    <img class="status-picture" src="@Url.Content(item.urlToPic)" alt="Image" />
+                    <a href="@Url.Content(item.urlToPic)">
+                        <img class="status-picture" src="@Url.Content(item.urlToPic)" alt="Image" />
+                    </a>
                 }    
             </div>                         
             
