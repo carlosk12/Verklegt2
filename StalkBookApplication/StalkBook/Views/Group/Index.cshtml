@@ -1,29 +1,37 @@
-﻿@model  StalkBook.Models.GroupViewModel
+﻿@using Microsoft.AspNet.Identity
+@model  StalkBook.Models.GroupViewModel
 
 @{
-    ViewBag.Title = "View";
+    ViewBag.Title = "My groups";
 }
 
 <div>
-    <h2>Groups</h2>
+    <h2>My Groups</h2>
 
     <div class="newsfeed-box">
         <form role="form" method="post">
-            <div class="form-group status-content">
+            <span class="form-group status-content">
                 @Html.TextBoxFor(model => model.name, new { @placeholder = "Enter group name", })
-            </div>
+            </span>
             <button type="submit" class="btn btn-default">Create Group</button>
         </form>
     </div>
 
-    <div class="search-profiles">
-        <ul>
-        @foreach (var item in Model.groups)
-        {
-            <li>
-                @item.name
-            </li>
-        }
-        </ul>
+    <div>
+            @foreach (var item in Model.groups)
+            {
+                if (item.ownerId == User.Identity.GetUserId())
+                {
+                    <p class="search-body content">
+                        @item.name @Html.ActionLink("Delete group", "Delete", "Group")
+                    </p>
+                }
+                else
+                {
+                    <p class="search-body content">
+                        @item.name
+                    </p>
+                }
+            }
     </div>
 </div>

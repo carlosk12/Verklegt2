@@ -41,5 +41,7 @@ namespace StalkBook.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<StalkBook.Models.GroupViewModel> GroupViewModels { get; set; }
     }
 }
