@@ -255,6 +255,7 @@
     <Content Include="Views\Newsfeed\StatusPartial.cshtml" />
     <Content Include="Views\Newsfeed\Search.cshtml" />
     <Content Include="Views\Manage\ChangeEmail.cshtml" />
+    <Content Include="Views\Group\Join.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

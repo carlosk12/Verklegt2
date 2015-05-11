@@ -22,11 +22,37 @@ namespace StalkBook.Controllers
             return View(model);
         }
 
+        public ActionResult Join()
+        {
+            var model = new GroupViewModel();
+            model.groups = service.GetAllGroups();
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(Group group)
+        {
+            string theUserId = User.Identity.GetUserId();
+            service.DeleteGroup(theUserId, group);
+
+            return RedirectToAction("Join");
+        }
+
         [HttpPost]
         public ActionResult Index(Group groupName)
         {
             string theUserId = User.Identity.GetUserId();
             service.CreateGroup(theUserId, groupName);
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult AddUser(Group groupId)
+        {
+            string userId = User.Identity.GetUserId();
+            service.AddUserToGroup(userId, groupId);
 
             return RedirectToAction("Index");
         }
