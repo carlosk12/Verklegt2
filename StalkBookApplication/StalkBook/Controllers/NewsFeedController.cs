@@ -41,5 +41,14 @@ namespace StalkBook.Controllers
             
             return View(model);
         }
+
+        [HttpPost]
+        public ActionResult RateStatus(int currRating, string arrowDirection)
+        {
+            string theUserId = User.Identity.GetUserId();
+            var model = service.Search(theUserId, arrowDirection);
+
+            return View(model);
+        }
     }
 }

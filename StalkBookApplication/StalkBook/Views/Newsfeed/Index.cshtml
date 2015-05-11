@@ -26,19 +26,19 @@
         var statusRating = Model.myRatings.Where(s => s.statusId == item.ID).SingleOrDefault();
         var rating = item.upvotes - item.downvotes;    
         <div class="content">
-            @if (statusRating == null)
+            @if (statusRating == null || statusRating.rating == 0)
             {
-                <div class="rating-button neutral-up" role="button" tabindex="0"></div>
+                <div class="rating-button neutral-up" role="button" tabindex="0">0</div>
                 <div class="rating-button neutral-down" role="button" tabindex="0"></div>
             }
             else if (statusRating.rating == 1)
             {
-                <div class="rating-button upvoted" role="button" tabindex="0"></div>
+                <div class="rating-button upvoted" role="button" tabindex="0">1</div>
                 <div class="rating-button neutral-down" role="button" tabindex="0"></div>
             }
             else
             {
-                <div class="rating-button neutral-up" role="button" tabindex="0"></div>
+                <div class="rating-button neutral-up" role="button" tabindex="0">-1</div>
                 <div class="rating-button downvoted" role="button" tabindex="0"></div>
             }
             <p class="status-rating">@rating</p>  
