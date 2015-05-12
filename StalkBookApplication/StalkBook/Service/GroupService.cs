@@ -32,6 +32,7 @@ namespace StalkBook.Service
             model.name = group.name;
             model.groupStatuses = (from gs in db.groupStatuses
                                    where gs.groupId == groupId
+								   orderby gs.timeCreated descending
                                    select gs).ToList();
             model.groupId = groupId;
             
