@@ -9,6 +9,7 @@ namespace StalkBook.Models
         public string name { get; set; }
         public DateTime creationDate { get; set; }
         public IEnumerable<Group> groups { get; set; }
+        public IEnumerable<int> groupsJoined { get; set; }
         
     }
 }
