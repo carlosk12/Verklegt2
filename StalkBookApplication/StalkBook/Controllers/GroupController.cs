@@ -84,7 +84,11 @@ namespace StalkBook.Controllers
             string theUserId = User.Identity.GetUserId();
             service.PostStatus(theUserId, status);
 
-            return RedirectToAction("Group");
+            var model = service.GetGroupById(status.groupId);
+            model.myId = theUserId;
+            model.myRatings = newsFeedService.GetRatingByUserId(User.Identity.GetUserId());
+
+            return View("Group", model);
         }
     }
 }
