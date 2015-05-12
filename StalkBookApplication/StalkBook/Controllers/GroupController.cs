@@ -42,8 +42,16 @@ namespace StalkBook.Controllers
         [HttpPost]
         public ActionResult Index(Group groupName)
         {
-            string theUserId = User.Identity.GetUserId();
-            service.CreateGroup(theUserId, groupName);
+            if (string.IsNullOrEmpty(groupName.name))
+            {
+                RedirectToAction("Index");
+            }
+            else
+            {
+                string theUserId = User.Identity.GetUserId();
+                service.CreateGroup(theUserId, groupName);
+            }
+            
 
             return RedirectToAction("Index");
         }
