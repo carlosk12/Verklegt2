@@ -26,15 +26,24 @@
                     <li>@Html.ActionLink("Profile", "Index", "Profile")</li>
                     <li class=>@Html.ActionLink("Group", "Index", "Group")</li>
                 </ul>
-                <div class="search-box">
+                @*<div class="search-box">
                     <div class="search">
                         <form role="form" method="get" action="~/Search/Search">
                             <input type="search" id="mysearch" placeholder=Search... name="searchString" class="search">
                             <input type="submit" value="Search" class="btn btn-default btn-xs">
                         </form>
                     </div>
-                </div>
-
+                </div>*@
+                <div class="col-xs-4 col-md-offset-1 imidju">
+                    <form class="navbar-form" role="search" action="~/Search/Search">
+                        <div class="input-group">
+                            <input type="search" id="mysearch" class="form-control" placeholder="Search..." name="searchString">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div> 
 
 
                 @Html.Partial("_LoginPartial")
