@@ -59,6 +59,11 @@ button[type=submit]
     padding-top: 6px;
 }
 
+.user-fullName
+{
+    display:inline;
+}
+
 .search-body
 {
     padding-bottom: 10px;
@@ -167,7 +172,7 @@ button[type=submit]
 .profile-picture-icon
 {
     width: 40px;
-    height: 40px;
+    height: auto;
 }
 
 #cssmenu ul,

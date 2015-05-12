@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StalkBook.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,5 +14,9 @@ namespace StalkBook.Models
         public string userID { get; set; }
 		public string profilePicUrl { get; set; }
         public List<Status> userStatuses { get; set; }
+        public IEnumerable<UserStatusRating> myRatings { get; set; }
+        public string  body { get; set; }
+        public string urlToPic { get; set; }
+        public string myId { get; set; }
     }
 }
