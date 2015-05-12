@@ -20,11 +20,21 @@
                     <span class="icon-bar"></span>
                 </button>
             </div>
-            <div class="navbar-collapse collapse">
+            <div class="navbar-collapse collapse" id="cssmenu">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "NewsFeed")</li>
                     <li>@Html.ActionLink("Profile", "Index", "Profile")</li>
-                    <li>@Html.ActionLink("Group", "Index", "Group")</li>
+                    <li class='active has-sub'>@Html.ActionLink("Group", "Index", "Group")
+                        <ul>
+                            <li>
+                                @Html.ActionLink("All Groups", "Join", "Group", routeValues: null, htmlAttributes: new {title = "Join"})
+                            </li>
+
+                            <li class="last">
+                                @Html.ActionLink("My Groups", "Index", "Group", routeValues: null, htmlAttributes: new { title = "My Groups" })
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
                 <div class="search-box">
                     <div class="search">
@@ -33,7 +43,7 @@
                             <input type="search" id="mysearch" placeholder=Search... name=searchString class="search">
                             <input type="submit" value="Search" class="search-button btn btn-default btn-xs">
                         </form>
-                    </div> 
+                    </div>
                 </div>
 
                 @Html.Partial("_LoginPartial")
