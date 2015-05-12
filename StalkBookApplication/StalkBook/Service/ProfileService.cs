@@ -31,6 +31,15 @@ namespace StalkBook.Service
 			return result;
 		}
 
+		public Profile getProfileEntity(string Id)
+		{
+			var profile = (	from p in db.profiles
+							where p.userID == Id
+							select p).SingleOrDefault();
+
+			return profile;
+		}
+
 		public ProfileViewModel getProfileByID(int id)
 		{
 			var profileInfo = (from p in db.profiles
@@ -72,6 +81,23 @@ namespace StalkBook.Service
 			}
 
 			db.SaveChanges();
+		}
+
+		public void changeProfilePicUrl(string userId, string url)
+		{
+			if (!String.IsNullOrEmpty(url))
+			{
+				var db = new ApplicationDbContext();
+
+				var profile = (from p in db.profiles
+							   where p.userID == userId
+							   select p).SingleOrDefault();
+
+				profile.profilePicUrl = url;
+
+
+				db.SaveChanges();
+			}
 		}
     }
 }

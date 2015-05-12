@@ -256,6 +256,7 @@
     <Content Include="Views\Newsfeed\Search.cshtml" />
     <Content Include="Views\Manage\ChangeEmail.cshtml" />
     <Content Include="Views\Group\Join.cshtml" />
+    <Content Include="Views\Manage\ChangeProfilePic.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

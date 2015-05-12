@@ -57,6 +57,7 @@ namespace StalkBook.Controllers
         {
             ViewBag.StatusMessage =
 				message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
+				: message == ManageMessageId.ChangeProfilePicSuccess ? "Your profile picture has been changed."
 				: message == ManageMessageId.ChangeEmailSuccess ? "Your email has been changed."
                 : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
                 : message == ManageMessageId.SetTwoFactorSuccess ? "Your two-factor authentication provider has been set."
@@ -212,6 +213,23 @@ namespace StalkBook.Controllers
             }
             return RedirectToAction("Index", new { Message = ManageMessageId.RemovePhoneSuccess });
         }
+
+		public ActionResult ChangeProfilePic()
+		{
+			var service = new ProfileService();
+			var model = service.getProfileEntity(User.Identity.GetUserId());
+
+			return View("ChangeProfilePic", model);
+		}
+
+		[HttpPost]
+		public ActionResult ChangeProfilePic(Profile profile)
+		{
+			var service = new ProfileService();
+			service.changeProfilePicUrl(User.Identity.GetUserId(), profile.profilePicUrl);
+
+			return RedirectToAction("Index", new { Message = ManageMessageId.ChangeProfilePicSuccess });
+		}
 
 		public ActionResult ChangeEmail()
 		{
@@ -398,6 +416,7 @@ namespace StalkBook.Controllers
         {
             AddPhoneSuccess,
 			ChangeEmailSuccess,
+			ChangeProfilePicSuccess,
             ChangePasswordSuccess,
             SetTwoFactorSuccess,
             SetPasswordSuccess,

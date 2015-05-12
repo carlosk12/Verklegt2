@@ -38,11 +38,11 @@ namespace StalkBook.Controllers
 		public ActionResult GetProfile(string Id)
 		{
 			var service = new ProfileService();
-            var newsFeedService = new NewsfeedService();
+			var newsFeedService = new NewsfeedService();
 
 			var model = service.getProfile(Id);
-            model.myRatings = newsFeedService.GetRatingByUserId(User.Identity.GetUserId());
-            model.myId = User.Identity.GetUserId();
+			model.myRatings = newsFeedService.GetRatingByUserId(User.Identity.GetUserId());
+			model.myId = User.Identity.GetUserId();
 
 			return View("Index", model);
 		}
