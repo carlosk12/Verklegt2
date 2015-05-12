@@ -27,6 +27,7 @@ namespace StalkBook.Service
                               where s.userId == userId
                               select s.stalkedId).ToList();
             model.userId = userId;
+            model.searchString = searchString;
 
             return model;
         }
@@ -45,6 +46,8 @@ namespace StalkBook.Service
             model.groupsJoined = (from s in db.groupProfileFks
                               where s.profileID == userId
                               select s.groupID).ToList();
+            model.searchString = searchString;
+            model.myId = userId;
 
             return model;
         }

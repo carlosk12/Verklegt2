@@ -258,6 +258,7 @@
     <Content Include="Views\Search\Search.cshtml" />
     <Content Include="Views\Manage\ChangeEmail.cshtml" />
     <Content Include="Views\Group\Join.cshtml" />
+    <Content Include="Views\Search\SearchGroups.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

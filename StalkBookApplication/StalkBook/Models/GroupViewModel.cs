@@ -11,6 +11,8 @@ namespace StalkBook.Models
         public DateTime creationDate { get; set; }
         public IEnumerable<Group> groups { get; set; }
         public IEnumerable<int> groupsJoined { get; set; }
+        public string searchString { get; set; }
+        public string myId { get; set; }
         
     }
 }

@@ -30,7 +30,7 @@ namespace StalkBook.Controllers
         {
             string theUserId = User.Identity.GetUserId();
             var model = service.SearchGroups(theUserId, searchString);
-
+            
             return View(model);
         }
     }
