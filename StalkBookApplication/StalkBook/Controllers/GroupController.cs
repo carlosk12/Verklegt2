@@ -43,9 +43,10 @@ namespace StalkBook.Controllers
         public ActionResult GetGroupById(int groupId)
         {
             string theUserId = User.Identity.GetUserId();
-            service.RemoveUserFromGroup(theUserId, groupId);
+            var model = service.GetGroupById(groupId);
+            model.myId = theUserId;
 
-            return new EmptyResult();
+            return View("Group", model);
         }
 
         [HttpPost]

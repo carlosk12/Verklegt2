@@ -258,9 +258,9 @@
     <Content Include="Views\Newsfeed\StatusPartial.cshtml" />
     <Content Include="Views\Search\Search.cshtml" />
     <Content Include="Views\Manage\ChangeEmail.cshtml" />
-    <Content Include="Views\Group\Join.cshtml" />
     <Content Include="Views\Manage\ChangeProfilePic.cshtml" />
     <Content Include="Views\Search\SearchGroups.cshtml" />
+    <Content Include="Views\Group\Group.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -21,6 +21,22 @@ namespace StalkBook.Service
             db.SaveChanges();
         }
 
+        public GroupViewModel GetGroupById(int groupId)
+        {
+            var model = new GroupViewModel();
+            var group = (from g in db.groups
+                         where g.ID == groupId
+                         select g).SingleOrDefault();
+            model.creationDate = group.timeCreated;
+            model.name = group.name;
+            model.groupStatuses = (from gs in db.groupStatuses
+                                   where gs.groupId == groupId
+                                   select gs).ToList();
+            model.groupId = groupId;
+            
+            return model;
+        }
+
         public void DeleteGroup(string userId, Group groupName)
         {
             if (userId == groupName.ownerId)
