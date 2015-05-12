@@ -17,11 +17,6 @@ button[type=submit]
     float:right;
 }
 
-form {
-    width: 500px;
-    margin: 0 auto;
-}
-
 .search-box
 {
     position: fixed;
@@ -243,7 +238,7 @@ form {
 }
 #cssmenu > ul > li > a {
   color: #ffffff;
-  font-size: 12px;
+  font-size: 14px;
 }
 #cssmenu > ul > li:hover:after {
   content: '';
