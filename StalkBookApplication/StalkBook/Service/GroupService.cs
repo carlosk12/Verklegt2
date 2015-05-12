@@ -62,24 +62,27 @@ namespace StalkBook.Service
             return result;
         }
 
-        public void AddUserToGroup(string userId, Group group)
+        public void AddUserToGroup(string userId, int groupId)
         {
-            var groupFK = new GroupProfileFK();
-            group.ID = groupFK.groupID;
-            userId = groupFK.profileID;
-            db.groupProfileFks.Add(groupFK);
+            var group = new GroupProfileFK();
+            group.groupID = groupId;
+            group.profileID = userId;
+            db.groupProfileFks.Add(group);
             db.SaveChanges();
         }
 
-        public void RemoveUserFromGroup(string userId, Group groups)
+        public void RemoveUserFromGroup(string userId, int groupId)
         {
             var removeuser = (from s in db.groupProfileFks
                             where s.profileID == userId
-                            where s.groupID == groups.ID
+                            where s.groupID == groupId
                             select s).FirstOrDefault();
 
-            db.groupProfileFks.Remove(removeuser);
-            db.SaveChanges();
+            if (!String.IsNullOrEmpty(userId) && removeuser != null)
+            {
+                db.groupProfileFks.Remove(removeuser);
+                db.SaveChanges();
+            }
         }
     }
 }

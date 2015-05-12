@@ -30,26 +30,32 @@
         }
     });
 
-    $(".join-button").click(function (event) {
-        if ($(this).text() == "Join") {
-            $.post('/Stalk/Stalk/', { stalkId: $(this).closest('.search-body').data('id') },
+    $(".join-button").click(function (event)
+    {
+        var groupId = parseInt($(this).closest('.search-body').data('id'), 0);
+        if ($(this).text() == "Join")
+        {
+            $.post('/Group/Join/', { groupId: groupId },
             function () {
 
             })
             .fail(function () {
                 alert("Sorry there was a problem with stalking this user.");
             });
-            $(this).text("Stalking").addClass('btn-primary').removeClass('btn-default');
+            $(this).text("Joined").addClass('btn-primary').removeClass('btn-default');
         }
-        else {
-            $.post('/Stalk/stopStalkingUser/', { stalkId: $(this).closest('.search-body').attr('data-id') },
-            function () {
+        else
+        {
+            $.post('/Group/Leave/', { groupId: groupId },
+            function ()
+            {
 
             })
-            .fail(function () {
+            .fail(function ()
+            {
                 alert("Sorry there was a problem with stalking this user.");
             });
-            $(this).text("Stalk").addClass('btn-default').removeClass('btn-primary');
+            $(this).text("Join").addClass('btn-default').removeClass('btn-primary');
         }
     });
 

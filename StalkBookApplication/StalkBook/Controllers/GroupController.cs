@@ -22,12 +22,22 @@ namespace StalkBook.Controllers
             return View(model);
         }
 
-        public ActionResult Join()
+        [HttpPost]
+        public ActionResult Join(int groupId)
         {
-            var model = new GroupViewModel();
-            model.groups = service.GetAllGroups();
+            string theUserId = User.Identity.GetUserId();
+            service.AddUserToGroup(theUserId, groupId);
 
-            return View(model);
+            return new EmptyResult();
+        }
+
+        [HttpPost]
+        public ActionResult Leave(int groupId)
+        {
+            string theUserId = User.Identity.GetUserId();
+            service.RemoveUserFromGroup(theUserId, groupId);
+
+            return new EmptyResult();
         }
 
         [HttpPost]
@@ -56,13 +66,13 @@ namespace StalkBook.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
+        /*[HttpPost]
         public ActionResult AddUser(Group groupId)
         {
             string userId = User.Identity.GetUserId();
             service.AddUserToGroup(userId, groupId);
 
             return RedirectToAction("Index");
-        }
+        }*/
     }
 }
