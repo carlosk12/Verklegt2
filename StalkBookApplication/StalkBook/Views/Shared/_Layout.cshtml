@@ -24,17 +24,7 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "NewsFeed")</li>
                     <li>@Html.ActionLink("Profile", "Index", "Profile")</li>
-                    <li class='active has-sub'>@Html.ActionLink("Group", "Index", "Group")
-                        <ul>
-                            <li>
-                                @Html.ActionLink("All Groups", "Join", "Group", routeValues: null, htmlAttributes: new {title = "Join"})
-                            </li>
-
-                            <li class="last">
-                                @Html.ActionLink("My Groups", "Index", "Group", routeValues: null, htmlAttributes: new { title = "My Groups" })
-                            </li>
-                        </ul>
-                    </li>
+                    <li class=>@Html.ActionLink("Group", "Index", "Group")</li>
                 </ul>
                 <div class="search-box">
                     <div class="search">
