@@ -8,14 +8,17 @@
     <ul class="nav navbar-nav navbar-right">
         <li class='active has-sub'>
             @Html.ActionLink("Settings", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Settings" })
-        <ul>
-            <li>
-                <a href="/Manage/ChangeEmail">Change Email</a>
-            </li>
-            <li class='last'>
-                <a href="/Manage/ChangePassword">Change Password</a>
-            </li>
-        </ul>
+            <ul>
+                <li>
+                    <a href="/Manage/ChangeProfilePic">Change Profile Picture</a>
+                </li>
+                <li>
+                    <a href="/Manage/ChangeEmail">Change Email</a>
+                </li>
+                <li class='last'>
+                    <a href="/Manage/ChangePassword">Change Password</a>
+                </li>
+            </ul>
     </li>
         
         <li><a href="javascript:document.getElementById('logoutForm').submit()">Log Out</a></li>
