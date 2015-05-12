@@ -33,7 +33,8 @@ namespace StalkBook.Controllers
 
             return RedirectToAction("Index");
         }
-        [HttpPost]
+        
+        
         public ActionResult Search(string searchString)
         {
             string theUserId = User.Identity.GetUserId();

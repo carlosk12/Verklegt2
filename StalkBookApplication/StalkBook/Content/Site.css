@@ -28,6 +28,7 @@ textarea
 .navbar-inverse 
 {
     background-color: rgb(51, 204, 204);
+    background: linear-gradient(to bottom, #33cccc 0%,#0fb4e7 100%);
     border-bottom: none; 
 }
 
