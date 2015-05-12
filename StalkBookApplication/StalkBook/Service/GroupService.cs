@@ -5,6 +5,7 @@ using System.Runtime.InteropServices.ComTypes;
 using System.Web;
 using System.Web.Mvc.Html;
 using StalkBook.Models;
+using StalkBook.Entity;
 
 namespace StalkBook.Service
 {
@@ -57,6 +58,21 @@ namespace StalkBook.Service
 
                 db.SaveChanges();
             }
+        }
+
+        public void PostStatus(string userId, GroupStatus status)
+        {
+            status.userId = userId;
+            status.timeCreated = System.DateTime.Now;
+            status.fullName = (from p in db.profiles
+                                   where p.userID == userId
+                                   select p.name).SingleOrDefault();
+            if (!String.IsNullOrEmpty(status.urlToPic))
+            {
+                status.urlToPic = status.urlToPic;
+            }
+            db.groupStatuses.Add(status);       
+            db.SaveChanges();
         }
 
         public IEnumerable<Group> GetGroupsByUserId(string userId)

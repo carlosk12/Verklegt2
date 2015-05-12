@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using StalkBook.Models;
 using StalkBook.Service;
+using StalkBook.Entity;
 
 namespace StalkBook.Controllers
 {
@@ -13,6 +14,7 @@ namespace StalkBook.Controllers
     public class GroupController : Controller
     {
         private GroupService service = new GroupService();
+        private NewsfeedService newsFeedService = new NewsfeedService();
         // GET: Group
         public ActionResult Index()
         {
@@ -45,6 +47,7 @@ namespace StalkBook.Controllers
             string theUserId = User.Identity.GetUserId();
             var model = service.GetGroupById(groupId);
             model.myId = theUserId;
+            model.myRatings = newsFeedService.GetRatingByUserId(User.Identity.GetUserId());
 
             return View("Group", model);
         }
@@ -75,13 +78,13 @@ namespace StalkBook.Controllers
             return RedirectToAction("Index");
         }
 
-        /*[HttpPost]
-        public ActionResult AddUser(Group groupId)
+        [HttpPost]
+        public ActionResult PostStatus(GroupStatus status)
         {
-            string userId = User.Identity.GetUserId();
-            service.AddUserToGroup(userId, groupId);
+            string theUserId = User.Identity.GetUserId();
+            service.PostStatus(theUserId, status);
 
-            return RedirectToAction("Index");
-        }*/
+            return RedirectToAction("Group");
+        }
     }
 }

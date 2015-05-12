@@ -16,6 +16,9 @@ namespace StalkBook.Models
         public string myId { get; set; }
         public int groupId { get; set; }
         public IEnumerable<GroupStatus> groupStatuses { get; set; }
+        public string body { get; set; }
+        public string urlToPic { get; set; }
+        public IEnumerable<UserStatusRating> myRatings { get; set; }
         
     }
 }

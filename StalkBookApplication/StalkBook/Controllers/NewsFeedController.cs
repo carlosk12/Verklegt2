@@ -33,17 +33,6 @@ namespace StalkBook.Controllers
 
             return RedirectToAction("Index");
         }
-        
-        
-        /*public ActionResult Search(string searchString)
-        {
-            var s = new SearchService();
-            string theUserId = User.Identity.GetUserId();
-            var model = s.Search(theUserId, searchString);
-            
-            return View(model);
-        }*/
-
 
         [HttpPost]
         public ActionResult RateStatus(int currRating, string arrowDirection, int statusId)
