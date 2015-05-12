@@ -75,7 +75,7 @@ button[type=submit]
     display:inline;
 }
 
-.stalk-button
+.search-button
 {
     float: right;
     position: relative;
@@ -195,7 +195,6 @@ button[type=submit]
   background: -o-linear-gradient(top, #33cccc 0%, #0fb4e7 100%);
   background: -ms-linear-gradient(top, #33cccc 0%, #0fb4e7 100%);
   background: linear-gradient(to bottom, #33cccc 0%, #0fb4e7 100%);
-  border-bottom: 2px solid transparent;
   width: auto;
 }
 #cssmenu:after,

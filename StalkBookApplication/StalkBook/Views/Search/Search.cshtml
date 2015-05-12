@@ -5,6 +5,8 @@
 }
 
 <h2>Search</h2>
+ 
+<p class="search-groups">@Html.ActionLink("Search Groups", "SearchGroups", "Search", new { searchString = Model.searchString }, null)</p>
 
 <div class="search-profiles">
     @foreach (var item in Model.searchResult)
@@ -15,11 +17,11 @@
             {
                 if (Model.stalking.Contains(item.userID))
                 {
-                    <button class="btn btn-primary btn-sm stalk-button">Stalking</button>
+                    <button class="btn btn-primary btn-sm stalk-button search-button">Stalking</button>
                 }
                 else
                 {
-                    <button class="btn btn-default btn-sm stalk-button">Stalk</button>
+                    <button class="btn btn-default btn-sm stalk-button search-button">Stalk</button>
                 }
             }   
         </div>

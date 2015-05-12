@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace StalkBook.Models
 {
@@ -9,6 +10,9 @@ namespace StalkBook.Models
         public string name { get; set; }
         public DateTime creationDate { get; set; }
         public IEnumerable<Group> groups { get; set; }
+        public IEnumerable<int> groupsJoined { get; set; }
+        public string searchString { get; set; }
+        public string myId { get; set; }
         
     }
 }

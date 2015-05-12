@@ -35,13 +35,15 @@ namespace StalkBook.Controllers
         }
         
         
-        public ActionResult Search(string searchString)
+        /*public ActionResult Search(string searchString)
         {
+            var s = new SearchService();
             string theUserId = User.Identity.GetUserId();
-            var model = service.Search(theUserId, searchString);
+            var model = s.Search(theUserId, searchString);
             
             return View(model);
-        }
+        }*/
+
 
         [HttpPost]
         public ActionResult RateStatus(int currRating, string arrowDirection, int statusId)

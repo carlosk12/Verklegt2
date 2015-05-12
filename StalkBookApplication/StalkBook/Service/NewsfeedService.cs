@@ -34,25 +34,6 @@ namespace StalkBook.Service
 			return result;
 		}
 
-        public SearchViewModel Search(string userId, string searchString)
-        {
-            var model = new SearchViewModel();
-            var profiles = from u in db.profiles
-                           select u;
-
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                profiles = profiles.Where(s => s.name.Contains(searchString));
-            }
-            model.searchResult = profiles.ToList();
-            model.stalking = (from s in db.stalking
-                              where s.userId == userId
-                              select s.stalkedId).ToList();
-            model.userId = userId;
-
-            return model;
-        }
-
         public void PostStatus(string userId, Status userStatus)
         {
             userStatus.userId = userId;

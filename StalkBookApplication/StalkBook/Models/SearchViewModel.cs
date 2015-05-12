@@ -10,5 +10,6 @@ namespace StalkBook.Models
         public string userId { get; set; }
         public List<string> stalking { get; set; }
         public List<Profile> searchResult { get; set; }
+        public string  searchString { get; set; }
     }
 }

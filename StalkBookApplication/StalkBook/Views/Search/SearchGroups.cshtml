@@ -1,0 +1,31 @@
+﻿@model StalkBook.Models.GroupViewModel
+
+@{
+    ViewBag.Title = "SearchGroups";
+}
+
+<h2>SearchGroups</h2>
+
+<p class="search-groups">@Html.ActionLink("Search Profiles", "Search", "Search", new { searchString = Model.searchString }, null)</p>
+
+<div class="search-profiles">
+    @foreach (var item in Model.groups)
+    {
+        <div data-id="@item.ID" class="search-body content">
+            <p class="search-fullName">@item.name</p>
+            @*<p class="search-fullName">@Html.ActionLink(item.name, "GetProfile", "Profile", new { Id = item.userID }, null)</p>*@
+            @if (Model.myId != item.ownerId)
+            {
+                if (Model.groupsJoined.Contains(item.ID))
+                {
+                    <button class="btn btn-primary btn-sm join-button search-button">Joined</button>
+                }
+                else
+                {
+                    <button class="btn btn-default btn-sm join-button search-button">Join</button>
+                }
+            }
+            </div>
+        }
+    </div>
+
