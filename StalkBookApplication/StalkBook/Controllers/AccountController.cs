@@ -156,7 +156,7 @@ namespace StalkBook.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
 
 				var profile = new ProfileService();
-				profile.addProfilePicUrl( user.Id, model.profileUrlPic);
+				profile.AddProfilePicUrl( user.Id, model.profileUrlPic);
 
                 if (result.Succeeded)
                 {

@@ -12,13 +12,12 @@ namespace StalkBook.Controllers
     [Authorize]
     public class ProfileController : Controller
     {
-        // GET: Profile
+		private ProfileService service = new ProfileService();
+		private NewsfeedService newsFeedService = new NewsfeedService();
+
 		public ActionResult Index()
         {
-			var service = new ProfileService();
-            var newsFeedService = new NewsfeedService();
-
-			var model = service.getProfile(User.Identity.GetUserId());
+			var model = service.GetProfile(User.Identity.GetUserId());
             model.myRatings = newsFeedService.GetRatingByUserId(User.Identity.GetUserId());
             model.myId = User.Identity.GetUserId();
 
@@ -28,7 +27,6 @@ namespace StalkBook.Controllers
         [HttpPost]
         public ActionResult Index(Status userStatus)
         {
-            var newsFeedService = new NewsfeedService();
             string theUserId = User.Identity.GetUserId();
             newsFeedService.PostStatus(theUserId, userStatus);
 
@@ -37,14 +35,18 @@ namespace StalkBook.Controllers
 
 		public ActionResult GetProfile(string Id)
 		{
-			var service = new ProfileService();
-			var newsFeedService = new NewsfeedService();
-
-			var model = service.getProfile(Id);
+			var model = service.GetProfile(Id);
 			model.myRatings = newsFeedService.GetRatingByUserId(User.Identity.GetUserId());
 			model.myId = User.Identity.GetUserId();
 
 			return View("Index", model);
+		}
+
+		public ActionResult DeleteStatus(int Id)
+		{
+			service.DeleteStatus(Id);
+
+			return RedirectToAction("Index");
 		}
     }
 }

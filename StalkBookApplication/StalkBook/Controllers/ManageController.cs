@@ -217,7 +217,7 @@ namespace StalkBook.Controllers
 		public ActionResult ChangeProfilePic()
 		{
 			var service = new ProfileService();
-			var model = service.getProfileEntity(User.Identity.GetUserId());
+			var model = service.GetProfileEntity(User.Identity.GetUserId());
 
 			return View("ChangeProfilePic", model);
 		}
@@ -226,7 +226,7 @@ namespace StalkBook.Controllers
 		public ActionResult ChangeProfilePic(Profile profile)
 		{
 			var service = new ProfileService();
-			service.changeProfilePicUrl(User.Identity.GetUserId(), profile.profilePicUrl);
+			service.ChangeProfilePicUrl(User.Identity.GetUserId(), profile.profilePicUrl);
 
 			return RedirectToAction("Index", new { Message = ManageMessageId.ChangeProfilePicSuccess });
 		}

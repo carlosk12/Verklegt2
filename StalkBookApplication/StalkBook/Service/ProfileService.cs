@@ -10,7 +10,7 @@ namespace StalkBook.Service
     {
 		private ApplicationDbContext db = new ApplicationDbContext();
 
-		public ProfileViewModel getProfile(string id)
+		public ProfileViewModel GetProfile(string id)
 		{
 			var profileInfo = (from p in db.profiles
 						where p.userID == id
@@ -31,7 +31,7 @@ namespace StalkBook.Service
 			return result;
 		}
 
-		public Profile getProfileEntity(string Id)
+		public Profile GetProfileEntity(string Id)
 		{
 			var profile = (	from p in db.profiles
 							where p.userID == Id
@@ -40,7 +40,7 @@ namespace StalkBook.Service
 			return profile;
 		}
 
-		public ProfileViewModel getProfileByID(int id)
+		public ProfileViewModel GetProfileByID(int id)
 		{
 			var profileInfo = (from p in db.profiles
 							   where p.ID == id
@@ -63,10 +63,8 @@ namespace StalkBook.Service
 			return result;
 		}
 
-		public void addProfilePicUrl(string userId, string url)
+		public void AddProfilePicUrl(string userId, string url)
 		{
-			var db = new ApplicationDbContext();
-
 			var profile = (from p in db.profiles
 						   where p.userID == userId
 						   select p).SingleOrDefault();
@@ -83,12 +81,10 @@ namespace StalkBook.Service
 			db.SaveChanges();
 		}
 
-		public void changeProfilePicUrl(string userId, string url)
+		public void ChangeProfilePicUrl(string userId, string url)
 		{
 			if (!String.IsNullOrEmpty(url))
 			{
-				var db = new ApplicationDbContext();
-
 				var profile = (from p in db.profiles
 							   where p.userID == userId
 							   select p).SingleOrDefault();
@@ -98,6 +94,22 @@ namespace StalkBook.Service
 
 				db.SaveChanges();
 			}
+		}
+
+		public void DeleteStatus(int statusId)
+		{
+			var deleteStatus = (from s in db.userStatuses
+								where s.ID == statusId
+								select s).SingleOrDefault();
+
+			var deleteStatusRatings = (from s in db.userStatusRating
+									   where s.statusId == statusId
+									   select s).ToList();
+
+			db.userStatuses.Remove(deleteStatus);
+			db.userStatusRating.RemoveRange(deleteStatusRatings);
+
+			db.SaveChanges();
 		}
     }
 }
