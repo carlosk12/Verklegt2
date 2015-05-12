@@ -40,6 +40,14 @@ namespace StalkBook.Controllers
             return new EmptyResult();
         }
 
+        public ActionResult GetGroupById(int groupId)
+        {
+            string theUserId = User.Identity.GetUserId();
+            service.RemoveUserFromGroup(theUserId, groupId);
+
+            return new EmptyResult();
+        }
+
         [HttpPost]
         public ActionResult Delete(Group group)
         {
