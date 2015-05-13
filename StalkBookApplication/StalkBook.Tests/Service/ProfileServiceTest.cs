@@ -1,7 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StalkBook.Service;
-using StalkBook.Tests;
+using Stalkbook.Tests;
+using StalkBook.Models;
 
 namespace StalkBook.Tests.Service
 {
@@ -14,6 +15,9 @@ namespace StalkBook.Tests.Service
 		public void Initialize()
 		{
 			var mockDb = new MockDatabase();
+			var profile = new ProfileViewModel();
+
+
 		}
 
 		[TestMethod]
