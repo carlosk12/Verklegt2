@@ -11,7 +11,12 @@ namespace StalkBook.Service
 {
     public class GroupService
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private readonly IAppDataContext db;
+
+        public GroupService(IAppDataContext context)
+         {
+             db = context ?? new ApplicationDbContext();
+         }
 
         public void CreateGroup(string userId, Group groupName)
         {
@@ -53,11 +58,21 @@ namespace StalkBook.Service
                 var deleteStatusRating = (from r in db.userStatusRating where statusIds.Contains(r.statusId)  select r).ToList();
                 var deleteGroup = (from g in db.groups
                                    where g.ID == groupId
-                                   select g).FirstOrDefault();      
-                
-                db.groupProfileFks.RemoveRange(deleteFK);                
-                db.userStatuses.RemoveRange(deleteGroupStatuses);
-                db.userStatusRating.RemoveRange(deleteStatusRating);
+                                   select g).FirstOrDefault(); 
+     
+                foreach(var item in deleteFK)
+                {
+                    db.groupProfileFks.Remove(item); 
+                }
+                foreach (var item in deleteGroupStatuses)
+                {
+                    db.userStatuses.Remove(item);
+                }
+                foreach (var item in deleteStatusRating)
+                {
+                    db.userStatusRating.Remove(item);
+                }
+                         
                 db.groups.Remove(deleteGroup);
           
 

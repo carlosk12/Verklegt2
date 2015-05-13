@@ -12,7 +12,12 @@ namespace StalkBook.Service
     enum Ratings { Neutral = 0, Upvote = 1, Downvote = 2};
     public class NewsfeedService
     {
-		private ApplicationDbContext db = new ApplicationDbContext();
+        private readonly IAppDataContext db;
+
+        public NewsfeedService(IAppDataContext context)
+         {
+             db = context ?? new ApplicationDbContext();
+         }
 
         public IEnumerable<Status> GetMyStatuses(string userId)
         {

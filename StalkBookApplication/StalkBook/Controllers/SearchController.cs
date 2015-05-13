@@ -11,7 +11,7 @@ namespace StalkBook.Controllers
 {
     public class SearchController : Controller
     {
-        private SearchService service = new SearchService();
+        private SearchService service = new SearchService(null);
         // GET: Search
         public ActionResult Index()
         {

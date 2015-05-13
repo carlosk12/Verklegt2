@@ -9,7 +9,12 @@ namespace StalkBook.Service
 {
 	public class StalkService
 	{
-		private ApplicationDbContext db = new ApplicationDbContext();
+		private readonly IAppDataContext db;
+
+        public StalkService(IAppDataContext context)
+         {
+             db = context ?? new ApplicationDbContext();
+         }
 
 		public void StalkUser(string userId, string stalkId)
 		{

@@ -8,7 +8,12 @@ namespace StalkBook.Service
 {
     public class ProfileService
     {
-		private ApplicationDbContext db = new ApplicationDbContext();
+		private readonly IAppDataContext db;
+
+        public ProfileService(IAppDataContext context)
+         {
+             db = context ?? new ApplicationDbContext();
+         }
 
 		public ProfileViewModel GetProfile(string id)
 		{
@@ -108,7 +113,10 @@ namespace StalkBook.Service
 									   select s).ToList();
 
 			db.userStatuses.Remove(deleteStatus);
-			db.userStatusRating.RemoveRange(deleteStatusRatings);
+            foreach(var item in deleteStatusRatings)
+            {
+                db.userStatusRating.Remove(item);
+            }
 
 			db.SaveChanges();
 		}

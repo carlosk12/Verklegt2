@@ -11,7 +11,7 @@ namespace StalkBook.Controllers
 {
     public class StalkController : Controller
     {
-		private StalkService service = new StalkService();
+		private StalkService service = new StalkService(null);
         public ActionResult Index()
         {
             return View();

@@ -23,14 +23,25 @@ namespace StalkBook.Models
         }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public interface IAppDataContext
     {
-		public DbSet<Status> userStatuses{	get; set; }
-		public DbSet<Group> groups { get; set; }
-		public DbSet<Profile> profiles { get; set; }
-		public DbSet<GroupProfileFK> groupProfileFks { get; set; }
-		public DbSet<Stalking> stalking { get; set; }
-        public DbSet<UserStatusRating> userStatusRating { get; set; }
+        IDbSet<Status> userStatuses { get; set; }
+        IDbSet<Group> groups { get; set; }
+        IDbSet<Profile> profiles { get; set; }
+        IDbSet<GroupProfileFK> groupProfileFks { get; set; }
+        IDbSet<Stalking> stalking { get; set; }
+        IDbSet<UserStatusRating> userStatusRating { get; set; }
+        int SaveChanges();
+    }
+
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IAppDataContext
+    {
+		public IDbSet<Status> userStatuses{	get; set; }
+		public IDbSet<Group> groups { get; set; }
+		public IDbSet<Profile> profiles { get; set; }
+		public IDbSet<GroupProfileFK> groupProfileFks { get; set; }
+		public IDbSet<Stalking> stalking { get; set; }
+        public IDbSet<UserStatusRating> userStatusRating { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

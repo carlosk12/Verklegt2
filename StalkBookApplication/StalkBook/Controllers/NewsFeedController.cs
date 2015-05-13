@@ -12,7 +12,7 @@ namespace StalkBook.Controllers
 	[Authorize]
     public class NewsFeedController : Controller
     {
-        private NewsfeedService service = new NewsfeedService();
+        private NewsfeedService service = new NewsfeedService(null);
         // GET: NewsFeed
         public ActionResult Index()
         {

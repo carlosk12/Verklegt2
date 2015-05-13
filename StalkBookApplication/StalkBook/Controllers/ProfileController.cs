@@ -12,8 +12,8 @@ namespace StalkBook.Controllers
     [Authorize]
     public class ProfileController : Controller
     {
-		private ProfileService service = new ProfileService();
-		private NewsfeedService newsFeedService = new NewsfeedService();
+		private ProfileService service = new ProfileService(null);
+		private NewsfeedService newsFeedService = new NewsfeedService(null);
 
 		public ActionResult Index()
         {

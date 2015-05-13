@@ -11,7 +11,12 @@ namespace StalkBook.Service
 {
     public class SearchService
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private readonly IAppDataContext db;
+
+        public SearchService(IAppDataContext context)
+         {
+             db = context ?? new ApplicationDbContext();
+         }
         public SearchViewModel Search(string userId, string searchString)
         {
             var model = new SearchViewModel();

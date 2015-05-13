@@ -13,8 +13,8 @@ namespace StalkBook.Controllers
     [Authorize]
     public class GroupController : Controller
     {
-        private GroupService service = new GroupService();
-        private NewsfeedService newsFeedService = new NewsfeedService();
+        private GroupService service = new GroupService(null);
+        private NewsfeedService newsFeedService = new NewsfeedService(null);
         // GET: Group
         public ActionResult Index()
         {
@@ -86,8 +86,7 @@ namespace StalkBook.Controllers
             var model = service.GetGroupById((int)status.groupId);
             model.myId = theUserId;
             model.myRatings = newsFeedService.GetRatingByUserId(User.Identity.GetUserId());
-            
-            return RedirectToAction("GetGroupById", model);
+            return View("Group", model);
         }
     }
 }
