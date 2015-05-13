@@ -58,7 +58,7 @@ namespace StalkBook.Controllers
             string theUserId = User.Identity.GetUserId();
             service.DeleteGroup(theUserId, group);
 
-            return RedirectToAction("Join");
+            return RedirectToAction("Index");
         }
 
         [HttpPost]

@@ -11,7 +11,7 @@
     <div class="elegant-aero">
         <form role="form" method="post">
             <span class="form-group status-content">
-                @Html.TextBoxFor(model => model.name, new { @placeholder = "Enter group name", })
+                @Html.TextBoxFor(model => model.name, new { @placeholder = "Enter group name", required = "required", oninvalid="this.setCustomValidity('Enter group name here')", oninput="setCustomValidity('')" })
                 <button type="submit" class="btn btn-default">Create Group</button>
             </span>
 
