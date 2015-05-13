@@ -9,6 +9,7 @@ namespace StalkBook.Service
     public class ProfileService
     {
 		private ApplicationDbContext db = new ApplicationDbContext();
+		private NewsfeedService newsFeedService = new NewsfeedService();
 
 		public ProfileViewModel GetProfile(string id)
 		{
@@ -16,10 +17,7 @@ namespace StalkBook.Service
 						where p.userID == id
 						select p).FirstOrDefault();
 
-            List<Status> myStatuses = (from s in db.userStatuses
-                              where s.userId == id
-                              orderby s.timeCreated descending
-							  select s).ToList();
+			var myStatuses = newsFeedService.GetMyStatuses(id);
 
             var result = new ProfileViewModel();
             result.creationDate = profileInfo.creationDate;
@@ -46,12 +44,12 @@ namespace StalkBook.Service
 							   where p.ID == id
 							   select p).FirstOrDefault();
 
-			System.Diagnostics.Debug.Write(profileInfo.userID);
-
-			List<Status> myStatuses = (from s in db.userStatuses
-									   where s.userId == profileInfo.userID
-									   orderby s.timeCreated descending
-									   select s).ToList();
+			IEnumerable<StatusViewModel> myStatuses = newsFeedService.GetMyStatuses(profileInfo.userID);
+				
+												//(from s in db.userStatuses
+												//where s.userId == profileInfo.userID
+												//orderby s.timeCreated descending
+												//select s).ToList();
 
 			var result = new ProfileViewModel();
 			result.creationDate = profileInfo.creationDate;

@@ -14,24 +14,61 @@ namespace StalkBook.Service
     {
 		private ApplicationDbContext db = new ApplicationDbContext();
 
-        public IEnumerable<Status> GetMyStatuses(string userId)
+		public IEnumerable<StatusViewModel> GetMyStatuses(string userId)
         {
-			IEnumerable<Status> value = (	from p in db.userStatuses
-											where p.userId == userId            
-											select p).Take(20);
-          
-            return value;
+			var statuses = (from p in db.userStatuses
+							where p.userId == userId
+							select p).ToList();
+
+			StatusViewModel[] statusViews = new StatusViewModel[statuses.Count];
+
+			if(statuses != null)
+			{
+				for (int i = 0; i < statuses.Count; i++)
+				{
+					statusViews[i].status = statuses[i];
+
+					var comments = (from c in db.comment
+									where c.statusID == statuses[i].ID
+									orderby c.timeCreated descending
+									select c).ToList();
+
+					statusViews[i].comments = comments;
+				}
+			}
+
+			return statusViews.ToList();
         }
 
-		public IEnumerable<Status> GetAllAvailableStatuses(string userId)
+		public StatusesViewModel GetAllAvailableStatuses(string userId)
 		{
-            List<string> result1 = (from s in db.stalking
+            List<string> stalkList = (from s in db.stalking
                                     where s.userId == userId
                                     select s.stalkedId.ToString()).ToList();
 
-            var result = (from us in db.userStatuses where result1.Contains(us.userId) orderby us.timeCreated descending select us).Take(25);
+			var statuses = (from us in db.userStatuses where stalkList.Contains(us.userId) orderby us.timeCreated descending select us).ToList();
 
-			return result;
+			StatusViewModel[] statusViews = new StatusViewModel[statuses.Count];
+
+			if (statuses != null)
+			{
+				for (int i = 0; i < statuses.Count; i++)
+				{
+					statusViews[i].status = statuses[i];
+
+					var comments = (from c in db.comment
+									where c.statusID == statuses[i].ID
+									orderby c.timeCreated descending
+									select c).ToList();
+
+					statusViews[i].comments = comments;
+				}
+			}
+
+			StatusesViewModel statusesView = new StatusesViewModel();
+			statusesView.availableStatuses = statusViews.ToList();
+
+			return statusesView;
 		}
 
         public void PostStatus(string userId, Status userStatus)

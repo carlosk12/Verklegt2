@@ -1,31 +1,18 @@
-﻿@model  StalkBook.Models.StatusViewModel
+﻿@model  StalkBook.Models.StatusesViewModel
 
 @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Index";
 }
 
-@*@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    }
-*@
-
-<div class="newsfeed-box">
-    <form role="form" method="post">
-        <div class="form-group status-content">
-            @Html.TextAreaFor(model => model.body, new { @rows = 5, @cols = 50, @maxlength = 200, @placeholder = "What's happening?", htmlAttributes = new { @class = "form-control" } })
-            @Html.TextAreaFor(model => model.urlToPic, new { @rows = 1, @cols = 50, @maxlength = 250, @placeholder = "Enter url to picture...", htmlAttributes = new { @class = "form-control" } })
-        </div>
-        <button type="submit" class="btn btn-default">Post</button>
-    </form>
-</div>
 
 <div class="all-statuses"> 
     @foreach (var item in Model.availableStatuses)
     {
-        var statusRating = Model.myRatings.Where(s => s.statusId == item.ID).SingleOrDefault();
-        var rating = item.upvotes - item.downvotes;    
-        <div class="content" data-id="@item.ID">
-            @if (statusRating == null || statusRating.rating == 0)
+        //var statusRating = Model.myRatings.Where(s => s.statusId == ).SingleOrDefault();
+        //var rating = item.upvotes - item.downvotes;   
+        <div class="content" data-id="@item">
+            @*@if (statusRating == null || statusRating.rating == 0)
             {
                 <div class="rating-button neutral-up" role="button" tabindex="0">0</div>
                 <div class="rating-button neutral-down" role="button" tabindex="0">0</div>
@@ -39,16 +26,16 @@
             {
                 <div class="rating-button neutral-up" role="button" tabindex="0">2</div>
                 <div class="rating-button downvoted" role="button" tabindex="0">2</div>
-            }
-            <p class="status-rating">@rating</p>  
+            }*@
+            <p class="status-rating"></p>  
             <div class="status-main">
-                <p>@Html.ActionLink(item.fullName, "GetProfile", "Profile", new { Id = item.userId }, null)</p>
-                <p>@item.timeCreated.Date.ToShortDateString() @item.timeCreated.ToShortTimeString()</p>
-                <p>@item.body</p>
-                @if (!String.IsNullOrEmpty(item.urlToPic))
+                <p>@Html.ActionLink(item.status.fullName, "GetProfile", "Profile", new { Id = item.status.userId }, null)</p>
+                <p>@item.status.timeCreated.Date.ToShortDateString() @item.status.timeCreated.ToShortTimeString()</p>
+                <p>@item.status.body</p>
+                @if (!String.IsNullOrEmpty(item.status.urlToPic))
                 {
-                    <a href="@Url.Content(item.urlToPic)">
-                        <img class="status-picture" src="@Url.Content(item.urlToPic)" alt="Image" />
+                    <a href="@Url.Content(item.status.urlToPic)">
+                        <img class="status-picture" src="@Url.Content(item.status.urlToPic)" alt="Image" />
                     </a>
                 }    
             </div>                         

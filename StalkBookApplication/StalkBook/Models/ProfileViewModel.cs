@@ -13,7 +13,7 @@ namespace StalkBook.Models
         public DateTime creationDate { get; set; }
         public string userID { get; set; }
 		public string profilePicUrl { get; set; }
-        public List<Status> userStatuses { get; set; }
+		public IEnumerable<StatusViewModel> userStatuses { get; set; }
         public IEnumerable<UserStatusRating> myRatings { get; set; }
         public string  body { get; set; }
         public string urlToPic { get; set; }

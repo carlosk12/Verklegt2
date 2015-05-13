@@ -26,7 +26,7 @@
 
 
 <div class="all-statuses">
-    @foreach (var item in Model.userStatuses)
+    @foreach (var item in Model)
     {
         var statusRating = Model.myRatings.Where(s => s.statusId == item.ID).SingleOrDefault();
         var rating = item.upvotes - item.downvotes;    

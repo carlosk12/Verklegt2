@@ -32,6 +32,7 @@ namespace StalkBook.Models
 		public DbSet<GroupProfileFK> groupProfileFks { get; set; }
 		public DbSet<Stalking> stalking { get; set; }
         public DbSet<UserStatusRating> userStatusRating { get; set; }
+		public DbSet<Comment> comment { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
