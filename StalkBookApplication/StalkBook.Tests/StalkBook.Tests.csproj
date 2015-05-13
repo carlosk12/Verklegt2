@@ -93,6 +93,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
     <Compile Include="Service\GroupServiceTest.cs" />
+    <Compile Include="Service\NewsfeedServiceTest.cs" />
+    <Compile Include="Service\ProfileServiceTest.cs" />
+    <Compile Include="Service\SearchServiceTest.cs" />
+    <Compile Include="Service\StalkServiceTest.cs" />
+    <Compile Include="Service\ManageServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
