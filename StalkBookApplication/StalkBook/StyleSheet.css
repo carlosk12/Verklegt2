@@ -73,6 +73,7 @@ button[type=submit]
 {
     padding-bottom: 10px;
     padding-top: 10px;
+    width: 500px;
 }
 
 .search-fullName
