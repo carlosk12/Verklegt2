@@ -18,6 +18,7 @@ namespace StalkBook.Service
 
             List<Status> myStatuses = (from s in db.userStatuses
                               where s.userId == id
+                              where s.groupId == null
                               orderby s.timeCreated descending
 							  select s).ToList();
 

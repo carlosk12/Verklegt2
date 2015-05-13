@@ -30,7 +30,7 @@ namespace StalkBook.Service
                          select g).SingleOrDefault();
             model.creationDate = group.timeCreated;
             model.name = group.name;
-            model.groupStatuses = (from gs in db.groupStatuses
+            model.groupStatuses = (from gs in db.userStatuses
                                    where gs.groupId == groupId
 								   orderby gs.timeCreated descending
                                    select gs).ToList();
@@ -61,7 +61,7 @@ namespace StalkBook.Service
             }
         }
 
-        public void PostStatus(string userId, GroupStatus status)
+        public void PostStatus(string userId, Status status)
         {
             status.userId = userId;
             status.timeCreated = System.DateTime.Now;
@@ -72,7 +72,7 @@ namespace StalkBook.Service
             {
                 status.urlToPic = status.urlToPic;
             }
-            db.groupStatuses.Add(status);       
+            db.userStatuses.Add(status);       
             db.SaveChanges();
         }
 

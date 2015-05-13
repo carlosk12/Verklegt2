@@ -29,7 +29,7 @@ namespace StalkBook.Service
                                     where s.userId == userId
                                     select s.stalkedId.ToString()).ToList();
 
-            var result = (from us in db.userStatuses where result1.Contains(us.userId) orderby us.timeCreated descending select us).Take(25);
+            var result = (from us in db.userStatuses where result1.Contains(us.userId) where us.groupId == null orderby us.timeCreated descending select us).Take(25);
 
 			return result;
 		}

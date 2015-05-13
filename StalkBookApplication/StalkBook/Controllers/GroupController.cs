@@ -79,12 +79,12 @@ namespace StalkBook.Controllers
         }
 
         [HttpPost]
-        public ActionResult PostStatus(GroupStatus status)
+        public ActionResult PostStatus(Status status)
         {
             string theUserId = User.Identity.GetUserId();
             service.PostStatus(theUserId, status);
 
-            var model = service.GetGroupById(status.groupId);
+            var model = service.GetGroupById((int)status.groupId);
             model.myId = theUserId;
             model.myRatings = newsFeedService.GetRatingByUserId(User.Identity.GetUserId());
 
