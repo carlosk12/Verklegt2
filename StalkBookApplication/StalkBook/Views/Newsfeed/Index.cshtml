@@ -15,7 +15,7 @@
     </form>
 </div>
 
-<div class="all-statuses"> 
+<div class="all-statuses">
     @foreach (var item in Model.availableStatuses)
     {
         var statusRating = Model.myRatings.Where(s => s.statusId == item.ID).SingleOrDefault();
