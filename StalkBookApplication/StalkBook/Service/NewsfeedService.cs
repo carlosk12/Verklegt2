@@ -18,7 +18,7 @@ namespace StalkBook.Service
         {
 			IEnumerable<Status> value = (	from p in db.userStatuses
 											where p.userId == userId            
-											select p).Take(20);
+											select p).ToList();
           
             return value;
         }
@@ -29,7 +29,7 @@ namespace StalkBook.Service
                                     where s.userId == userId
                                     select s.stalkedId.ToString()).ToList();
 
-            var result = (from us in db.userStatuses where result1.Contains(us.userId) where us.groupId == null orderby us.timeCreated descending select us).Take(25);
+            var result = (from us in db.userStatuses where result1.Contains(us.userId) where us.groupId == null orderby us.timeCreated descending select us).Take(50);
 
 			return result;
 		}
