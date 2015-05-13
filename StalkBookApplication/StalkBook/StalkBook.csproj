@@ -192,6 +192,11 @@
     <Compile Include="Service\ProfileService.cs" />
     <Compile Include="Service\SearchService.cs" />
     <Compile Include="Service\StalkService.cs" />
+    <Compile Include="Service\NewsfeedServiceTest.cs" />
+    <Compile Include="Service\ProfileServiceTest.cs" />
+    <Compile Include="Service\SearchServiceTest.cs" />
+    <Compile Include="Service\StalkServiceTest.cs" />
+    <Compile Include="Service\ManageServiceTest.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
