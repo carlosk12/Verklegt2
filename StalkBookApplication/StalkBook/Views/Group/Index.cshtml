@@ -25,13 +25,13 @@
                 if (item.ownerId == User.Identity.GetUserId())
                 {
                     <div class="search-body content form-inline">
-                        <span>@Html.ActionLink(item.name, "GetGroupById", "Group", new { groupId = item.ID }, null)</span> <span>@Html.ActionLink("Delete group", "Delete", "Group", new {@class = "btn btn-primary elegant-aero"})</span>
+                        <span>@Html.ActionLink(item.name, "GetGroupById", "Group", new { groupId = item.ID }, null)</span> <span>@Html.ActionLink("Delete group", "Delete", "Group", new {groupID = item.ID }, null)</span>
                     </div>
                 }
                 else
                 {
                     <p class="search-body content">
-                        @item.name
+                        <span>@Html.ActionLink(item.name, "GetGroupById", "Group", new { groupId = item.ID }, null)</span>
                     </p>
                 }
             }

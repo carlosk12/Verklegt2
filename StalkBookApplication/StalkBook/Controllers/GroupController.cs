@@ -52,11 +52,10 @@ namespace StalkBook.Controllers
             return View("Group", model);
         }
 
-        [HttpPost]
-        public ActionResult Delete(Group group)
+        public ActionResult Delete(int groupID)
         {
             string theUserId = User.Identity.GetUserId();
-            service.DeleteGroup(theUserId, group);
+            service.DeleteGroup(groupID);
 
             return RedirectToAction("Index");
         }
@@ -87,7 +86,6 @@ namespace StalkBook.Controllers
             var model = service.GetGroupById((int)status.groupId);
             model.myId = theUserId;
             model.myRatings = newsFeedService.GetRatingByUserId(User.Identity.GetUserId());
-
             return View("Group", model);
         }
     }

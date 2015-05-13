@@ -39,26 +39,29 @@ namespace StalkBook.Service
             return model;
         }
 
-        public void DeleteGroup(string userId, Group groupName)
-        {
-            if (userId == groupName.ownerId)
-            {
+        public void DeleteGroup(int groupId)
+        {           
                 var deleteFK = (from s in db.groupProfileFks
-                                where s.profileID == userId
-                                where s.groupID == groupName.ID
-                                select s).FirstOrDefault();
-
-                db.groupProfileFks.Remove(deleteFK);
-
-                var deleteGroup = (from s in db.groups
-                                   where s.ownerId == userId
-                                   where s.ID == groupName.ID
-                                   select s).FirstOrDefault();
-
+                                where s.groupID == groupId                            
+                                select s).ToList();             
+                var deleteGroupStatuses = (from s in db.userStatuses
+                                           where s.groupId == groupId
+                                           select s).ToList();
+                List<int> statusIds = (from s in db.userStatuses
+                                 where s.groupId == groupId
+                                 select s.ID).ToList();                
+                var deleteStatusRating = (from r in db.userStatusRating where statusIds.Contains(r.statusId)  select r).ToList();
+                var deleteGroup = (from g in db.groups
+                                   where g.ID == groupId
+                                   select g).FirstOrDefault();      
+                
+                db.groupProfileFks.RemoveRange(deleteFK);                
+                db.userStatuses.RemoveRange(deleteGroupStatuses);
+                db.userStatusRating.RemoveRange(deleteStatusRating);
                 db.groups.Remove(deleteGroup);
+          
 
                 db.SaveChanges();
-            }
         }
 
         public void PostStatus(string userId, Status status)
