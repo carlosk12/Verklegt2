@@ -166,7 +166,6 @@
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\StalkController.cs" />
-    <Compile Include="Entity\GroupStatus.cs" />
     <Compile Include="Entity\UserStatusRating.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
