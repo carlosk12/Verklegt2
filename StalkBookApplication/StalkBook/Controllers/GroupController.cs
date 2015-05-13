@@ -86,7 +86,8 @@ namespace StalkBook.Controllers
             var model = service.GetGroupById((int)status.groupId);
             model.myId = theUserId;
             model.myRatings = newsFeedService.GetRatingByUserId(User.Identity.GetUserId());
-            return View("Group", model);
+            
+            return RedirectToAction("GetGroupById", model);
         }
     }
 }
