@@ -26,7 +26,6 @@ namespace StalkBook.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
 		public DbSet<Status> userStatuses{	get; set; }
-        public DbSet<GroupStatus> groupStatuses { get; set; }
 		public DbSet<Group> groups { get; set; }
 		public DbSet<Profile> profiles { get; set; }
 		public DbSet<GroupProfileFK> groupProfileFks { get; set; }
@@ -42,7 +41,5 @@ namespace StalkBook.Models
         {
             return new ApplicationDbContext();
         }
-
-        public System.Data.Entity.DbSet<StalkBook.Models.GroupViewModel> GroupViewModels { get; set; }
     }
 }
