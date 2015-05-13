@@ -12,7 +12,6 @@
     @foreach (var item in Model.groups)
     {
         <div data-id="@item.ID" class="search-body content">
-            <p class="search-fullName">@item.name</p>
             <p class="search-fullName">@Html.ActionLink(item.name, "GetGroupById", "Group", new { groupId = item.ID }, null)</p>
             @if (Model.myId != item.ownerId)
             {
