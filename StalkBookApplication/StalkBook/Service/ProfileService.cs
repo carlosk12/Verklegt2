@@ -79,5 +79,25 @@ namespace StalkBook.Service
 
 			db.SaveChanges();
 		}
+
+		public IEnumerable<ProfileViewModel> ViewStalking(string Id)
+		{
+			IEnumerable<ProfileViewModel> profiles = new List<ProfileViewModel>();
+
+			var stalkList = (from p in db.stalking
+						  where p.userId == Id
+						  select p).ToList();
+
+			ProfileViewModel myProfile = this.GetProfile(Id);
+
+			profiles.ToList().Add(myProfile);
+
+			foreach (var item in stalkList)
+			{
+				profiles.ToList().Add( GetProfile(item.userId) );
+			}
+
+			return profiles;
+		}
     }
 }

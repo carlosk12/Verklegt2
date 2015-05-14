@@ -253,12 +253,12 @@
     <Content Include="Views\Newsfeed\Index.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Group\Index.cshtml" />
-    <Content Include="Views\Newsfeed\StatusPartial.cshtml" />
     <Content Include="Views\Search\Search.cshtml" />
     <Content Include="Views\Manage\ChangeEmail.cshtml" />
     <Content Include="Views\Manage\ChangeProfilePic.cshtml" />
     <Content Include="Views\Search\SearchGroups.cshtml" />
     <Content Include="Views\Group\Group.cshtml" />
+    <Content Include="Views\Profile\Stalking.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

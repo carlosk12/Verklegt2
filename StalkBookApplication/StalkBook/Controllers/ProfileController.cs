@@ -48,5 +48,12 @@ namespace StalkBook.Controllers
 
 			return RedirectToAction("Index");
 		}
+
+		public ActionResult Stalking(string Id)
+		{
+			var model = service.ViewStalking(Id);
+
+			return View("Stalking", model);
+		}
     }
 }
