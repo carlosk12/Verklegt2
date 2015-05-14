@@ -150,80 +150,85 @@ namespace StalkBook.Tests.Service
         public void SearchGroupSearchStringContainsAll()
         {
             // Arrange
-            var profile1 = new Profile { ID = 1, name = "Gunni", userID = "User1" };
-            var profile2 = new Profile { ID = 2, name = "Gummi", userID = "User2" };
-            var profile3 = new Profile { ID = 3, name = "Gunna", userID = "User3" };
-            List<string> stalkings = new List<string> { "User1", "User2", "User3" };
-            List<Profile> profiles = new List<Profile> { profile1, profile2, profile3 };
+            var group1 = new Group { ID = 1, name = "Group1", ownerId = "User1" };
+            var group2 = new Group { ID = 2, name = "Group2", ownerId = "User2" };
+            var group3 = new Group { ID = 3, name = "Group3", ownerId = "User3" };
 
-            var expectedResult = new SearchViewModel { searchString = "G", userId = "User3", stalking = stalkings, searchResult = profiles };
+            IEnumerable<Group> groups = new List<Group> {group1, group2, group3};
+
+            var expectedResult = new GroupViewModel { searchString = "G", groups = groups };
 
             // Act
-            var result = service.Search("User1", "G");
+            var result = service.SearchGroups("User1", "G");
 
             // Assert
-            Assert.AreEqual(expectedResult.searchResult.ElementAt(0).ID, result.searchResult.ElementAt(0).ID);
-            Assert.AreEqual(expectedResult.searchResult.ElementAt(1).ID, result.searchResult.ElementAt(1).ID);
-            Assert.AreEqual(expectedResult.searchResult.ElementAt(2).ID, result.searchResult.ElementAt(2).ID);
+            Assert.AreEqual(expectedResult.groups.ElementAt(0).ID, result.groups.ElementAt(0).ID);
+            Assert.AreEqual(expectedResult.groups.ElementAt(1).ID, result.groups.ElementAt(1).ID);
+            Assert.AreEqual(expectedResult.groups.ElementAt(2).ID, result.groups.ElementAt(2).ID);
+        }
+
+        [TestMethod]
+        public void SearchGroupSearchStringContainsOne()
+        {
+            // Arrange
+            var group2 = new Group { ID = 1, name = "Group2", ownerId = "User1" };
+
+            IEnumerable<Group> groups = new List<Group> { group2 };
+
+            var expectedResult = new GroupViewModel { searchString = "2", groups = groups };
+            var numberOfResults = 1;
+
+            // Act
+            var result = service.SearchGroups("User1", "2");
+
+            // Assert
+            Assert.AreEqual(expectedResult.groups.ElementAt(0).name, result.groups.ElementAt(0).name);
+            Assert.AreEqual(expectedResult.groups.Count(), numberOfResults);
         }
 
         [TestMethod]
         public void SearchGroupSearchStringEmpty()
         {
             // Arrange
-            var profile1 = new Profile { ID = 1, name = "Gunni", userID = "User1" };
-            var profile2 = new Profile { ID = 2, name = "Gummi", userID = "User2" };
-            var profile3 = new Profile { ID = 3, name = "Gunna", userID = "User3" };
-            List<string> stalkings = new List<string> { "User1", "User2", "User3" };
-            List<Profile> profiles = new List<Profile> { profile1, profile2, profile3 };
+            var group1 = new Group { ID = 1, name = "Group1", ownerId = "User1" };
+            var group2 = new Group { ID = 2, name = "Group2", ownerId = "User2" };
+            var group3 = new Group { ID = 3, name = "Group3", ownerId = "User3" };
 
-            var expectedResult = new SearchViewModel { searchString = "", userId = "User3", stalking = stalkings, searchResult = profiles };
+            IEnumerable<Group> groups = new List<Group> { group1, group2, group3 };
+
+            var expectedResult = new GroupViewModel { searchString = "", groups = groups };
+
+            var numberOfresults = 3;
 
             // Act
-            var result = service.Search("User3", "");
+            var result = service.SearchGroups("User1", "");
 
             // Assert
-            Assert.AreEqual(expectedResult.searchResult.ElementAt(0).ID, result.searchResult.ElementAt(0).ID);
-            Assert.AreEqual(expectedResult.searchResult.ElementAt(1).ID, result.searchResult.ElementAt(1).ID);
-            Assert.AreEqual(expectedResult.searchResult.ElementAt(2).ID, result.searchResult.ElementAt(2).ID);
+            Assert.AreEqual(expectedResult.groups.ElementAt(0).name, result.groups.ElementAt(0).name);
+            Assert.AreEqual(expectedResult.groups.ElementAt(1).name, result.groups.ElementAt(1).name);
+            Assert.AreEqual(expectedResult.groups.ElementAt(2).name, result.groups.ElementAt(2).name);
+            Assert.AreEqual(expectedResult.groups.Count(), numberOfresults);
         }
 
         [TestMethod]
-        public void SearchGroupSearchStringContainsOneProfile()
+        public void SearchGroupSearchStringNoResult()
         {
             // Arrange
-            var profile2 = new Profile { ID = 2, name = "Gummi", userID = "User2" };
-            List<string> stalkings = new List<string> { "User2" };
-            List<Profile> profiles = new List<Profile> { profile2 };
+            var group1 = new Group { ID = 1, name = "Group1", ownerId = "User1" };
+            var group2 = new Group { ID = 2, name = "Group2", ownerId = "User2" };
+            var group3 = new Group { ID = 3, name = "Group3", ownerId = "User3" };
 
-            var expectedResult = new SearchViewModel { searchString = "Gum", userId = "User3", stalking = stalkings, searchResult = profiles };
-            var numberOfResults = 1;
+            IEnumerable<Group> groups = new List<Group> { };
 
-            // Act
-            var result = service.Search("User3", "Gum");
+            var expectedResult = new GroupViewModel { searchString = "Gra", groups = groups };
 
-            // Assert
-            Assert.AreEqual(expectedResult.searchResult.ElementAt(0).ID, result.searchResult.ElementAt(0).ID);
-            Assert.AreEqual(result.searchResult.Count(), numberOfResults);
-        }
-
-        [TestMethod]
-        public void SearcGroupSearchStringNoProfiles()
-        {
-            // Arrange
-            var group1 = new Group { ID = 1, name = "Group1", ownerId = "User1"};
-            var groupFK = new GroupProfileFK{ID = 1, groupID = 1, profileID = "User1"};
-
-            List<string> groupProfileList = new List<string>{"User1"};
-
-            //var expectedResult = new SearchViewModel { searchString = "Group", userId = "User3", searchResult = profiles };
-            var numberOfResults = 0;
+            var numberOfresults = 0;
 
             // Act
-            var result = service.Search("User3", "Gunnar");
+            var result = service.SearchGroups("User1", "Gra");
 
             // Assert
-            Assert.AreEqual(result.searchResult.Count(), numberOfResults);
+            Assert.AreEqual(expectedResult.groups.Count(), numberOfresults);
         }
 	}
 }
