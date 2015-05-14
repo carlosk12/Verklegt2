@@ -21,8 +21,8 @@ namespace StalkBook.Tests.Service
 			var status1 = new Status { ID = 1, groupId = 1, body = "status1", userId = "User1" };
 			var status2 = new Status { ID = 2, groupId = 1, body = "status2", userId = "User1" };
 			var status3 = new Status { ID = 3, groupId = 2, body = "status3", userId = "User2" };
-
             List<Status> statuses = new List<Status>{status1, status2, status3};
+
 			var group1 = new Group { ID = 1, name = "group1", ownerId = "User1" };
 			var group2 = new Group { ID = 2, name = "group2", ownerId = "User2" };
 			var group3 = new Group { ID = 2, name = "group2", ownerId = "User2" };

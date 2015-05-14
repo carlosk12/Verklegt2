@@ -21,11 +21,20 @@ namespace StalkBook.Service
 
         public IEnumerable<Status> GetMyStatuses(string userId)
         {
-			IEnumerable<Status> value = (	from p in db.userStatuses
-											where p.userId == userId            
-											select p).ToList();
-          
-            return value;
+            try
+            {
+                IEnumerable<Status> value = (from p in db.userStatuses
+                                             where p.userId == userId
+                                             select p).ToList();
+                return value;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Write(ex.Message + Environment.NewLine + "Location of error: " + ex.Source +
+                    Environment.NewLine + "StackTrace: " + Environment.NewLine + ex.StackTrace +
+                    Environment.NewLine + "Time : " + DateTime.Now + Environment.NewLine);
+                return null;
+            }
         }
 
 		public IEnumerable<Status> GetAllAvailableStatuses(string userId)
