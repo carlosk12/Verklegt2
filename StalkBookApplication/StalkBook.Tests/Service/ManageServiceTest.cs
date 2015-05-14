@@ -8,11 +8,9 @@ namespace StalkBook.Tests.Service
 	public class ManageServiceTest
 	{
 		[TestMethod]
-		public void GetProfileForCarlos()
+		public void ChangeEmailForCarlos()
 		{
 			//Arrange
-			var service = new ProfileService(null);
-
 
 			//Act
 

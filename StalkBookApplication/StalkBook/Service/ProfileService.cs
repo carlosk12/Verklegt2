@@ -46,47 +46,6 @@ namespace StalkBook.Service
 			return profile;
 		}
 
-		public ProfileViewModel GetProfileByID(int id)
-		{
-			var profileInfo = (from p in db.profiles
-							   where p.ID == id
-							   select p).FirstOrDefault();
-
-			System.Diagnostics.Debug.Write(profileInfo.userID);
-
-			List<Status> myStatuses = (from s in db.userStatuses
-									   where s.userId == profileInfo.userID
-									   orderby s.timeCreated descending
-									   select s).ToList();
-
-			var result = new ProfileViewModel();
-			result.creationDate = profileInfo.creationDate;
-			result.name = profileInfo.name;
-			result.userStatuses = myStatuses;
-			result.userID = profileInfo.userID;
-			result.profilePicUrl = profileInfo.profilePicUrl;
-
-			return result;
-		}
-
-		public void AddProfilePicUrl(string userId, string url)
-		{
-			var profile = (from p in db.profiles
-						   where p.userID == userId
-						   select p).SingleOrDefault();
-
-			if (String.IsNullOrEmpty(url))
-			{
-				profile.profilePicUrl = "https://a7b146f211da20455eacff07e84c48e5e1ba36e0.googledrive.com/host/0B6sTYcGVKmPpbGtNQzB2U05XbDA/Chrome%20Incognito%20Windows%20Icon.ico";
-			}
-			else
-			{
-				profile.profilePicUrl = url;
-			}
-
-			db.SaveChanges();
-		}
-
 		public void ChangeProfilePicUrl(string userId, string url)
 		{
 			if (!String.IsNullOrEmpty(url))
