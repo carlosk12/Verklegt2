@@ -37,13 +37,36 @@ namespace StalkBook.Tests.Service
 		        mockDb.stalking.Add(item);
 		    }
 
-            service = new StalkService(mockDb);
+		    service = new StalkService(mockDb);
 		}
 
 	    [TestMethod]
 	    public void StalkUser()
 	    {
-	        
+            // Arrange
+            var numberOfStalkingUsers = 11;
+
+            // Act
+            service.StalkUser("User4", "User2");
+
+            // Assert
+            Assert.AreEqual(numberOfStalkingUsers, mockDb.stalking.Count());
+	    }
+
+	    [TestMethod]
+	    public void StopStalkingUser()
+	    {
+            // Arrange
+            var numberOfStalkingUsers = 8;
+
+            // Act
+            service.StopStalkingUser("User4", "User2");
+            service.StopStalkingUser("User3", "User2");
+            service.StopStalkingUser("User2", "User3");
+            service.StopStalkingUser("User3", "User4");
+
+            // Assert
+            Assert.AreEqual(numberOfStalkingUsers, mockDb.stalking.Count());
 	    }
 	}
 }

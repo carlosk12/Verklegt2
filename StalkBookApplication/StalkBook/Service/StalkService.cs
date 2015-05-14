@@ -18,8 +18,10 @@ namespace StalkBook.Service
 
 		public void StalkUser(string userId, string stalkId)
 		{
+            
 			if (!String.IsNullOrEmpty(userId) && !String.IsNullOrEmpty(stalkId))
 			{
+                
 				var stalking = new Stalking();
 				stalking.userId = userId;
 				stalking.stalkedId = stalkId;
