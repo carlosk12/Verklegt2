@@ -1,29 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="StalkBook.BundleConfig" Collapsed="true">
-    <Position X="11" Y="0.5" Width="1.5" />
+    <Position X="4.5" Y="10.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>App_Start\BundleConfig.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.FilterConfig" Collapsed="true">
-    <Position X="12.75" Y="1.5" Width="1.5" />
+    <Position X="6.25" Y="10.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>App_Start\FilterConfig.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.EmailService" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="5.75" Y="1.5" Width="1.5" />
+  <Class Name="StalkBook.EmailService" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>App_Start\IdentityConfig.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="StalkBook.SmsService" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="7.5" Y="5.5" Width="1.5" />
+  <Class Name="StalkBook.SmsService" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>App_Start\IdentityConfig.cs</FileName>
@@ -31,42 +31,42 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="StalkBook.ApplicationUserManager" Collapsed="true">
-    <Position X="9.25" Y="0.5" Width="1.5" />
+    <Position X="14.5" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>App_Start\IdentityConfig.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.ApplicationSignInManager" Collapsed="true">
-    <Position X="5.75" Y="0.5" Width="1.5" />
+    <Position X="5.75" Y="12" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>App_Start\IdentityConfig.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.RouteConfig" Collapsed="true">
-    <Position X="11" Y="4.5" Width="1.5" />
+    <Position X="8" Y="10.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>App_Start\RouteConfig.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.Startup" Collapsed="true">
-    <Position X="0.5" Y="6.5" Width="1.5" />
+    <Position X="2.25" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAgAAAAAAAAAA=</HashCode>
       <FileName>App_Start\Startup.Auth.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.MvcApplication" Collapsed="true">
-    <Position X="9.25" Y="3.5" Width="1.5" />
+    <Position X="2.75" Y="10.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
       <FileName>Global.asax.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.Controllers.AccountController" Collapsed="true">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Position X="12.75" Y="2.5" Width="1.5" />
     <NestedTypes>
       <Class Name="StalkBook.Controllers.AccountController.ChallengeResult" Collapsed="true">
         <TypeIdentifier>
@@ -80,323 +80,330 @@
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.Controllers.GroupController" Collapsed="true">
-    <Position X="5.75" Y="2.5" Width="1.5" />
+    <Position X="11" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAEQAAAAgAAAAAAAAAAAEAAAAAAEEAAAEAAAA=</HashCode>
       <FileName>Controllers\GroupController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Controllers.HomeController" Collapsed="true">
-    <Position X="12.75" Y="2.5" Width="1.5" />
+  <Class Name="StalkBook.Controllers.HomeController">
+    <Position X="2.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAEACAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
       <FileName>Controllers\HomeController.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.Controllers.ManageController" Collapsed="true">
-    <Position X="4" Y="3.5" Width="1.5" />
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="StalkBook.Controllers.ManageController.ManageMessageId" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Controllers\ManageController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
     <TypeIdentifier>
       <HashCode>AAAABACAQiAAgAAgAEFhCAAAAAEAIMIAAEEEgAAkAAA=</HashCode>
       <FileName>Controllers\ManageController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Controllers.NewsFeedController" Collapsed="true">
-    <Position X="11" Y="3.5" Width="1.5" />
+  <Class Name="StalkBook.Controllers.NewsFeedController">
+    <Position X="4" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEECAAAAAAA=</HashCode>
       <FileName>Controllers\NewsFeedController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Controllers.ProfileController" Collapsed="true">
-    <Position X="2.25" Y="4.5" Width="1.5" />
+  <Class Name="StalkBook.Controllers.ProfileController">
+    <Position X="5.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAQAAAFEAAAAAAAA=</HashCode>
       <FileName>Controllers\ProfileController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Controllers.SearchController" Collapsed="true">
-    <Position X="12.75" Y="4.5" Width="1.5" />
+  <Class Name="StalkBook.Controllers.SearchController">
+    <Position X="7.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEEACAAgAAA=</HashCode>
       <FileName>Controllers\SearchController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Controllers.StalkController" Collapsed="true">
-    <Position X="9.25" Y="5.5" Width="1.5" />
+  <Class Name="StalkBook.Controllers.StalkController">
+    <Position X="0.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABAAAQAAAEEAAAAAAAA=</HashCode>
       <FileName>Controllers\StalkController.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.Models.Group" Collapsed="true">
-    <Position X="4" Y="2.5" Width="1.5" />
+    <Position X="7.5" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAgAAAAAAAAAgAAAAAAAAEAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entity\Group.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.Models.GroupProfileFK" Collapsed="true">
-    <Position X="7.5" Y="2.5" Width="1.5" />
+    <Position X="11" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACAAAAAAAAAgAAAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entity\GroupProfileFK.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.Models.Profile" Collapsed="true">
-    <Position X="0.5" Y="4.5" Width="1.5" />
+    <Position X="0.5" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAgAAACQAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entity\Profile.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.Models.Stalking" Collapsed="true">
-    <Position X="11" Y="5.5" Width="1.5" />
+    <Position X="12.75" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAgCAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entity\Stalking.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.Models.Status" Collapsed="true">
-    <Position X="2.25" Y="6.5" Width="1.5" />
+    <Position X="4" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAEAAAhAAACACAAUAAAQAAgAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entity\Status.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Models.ExternalLoginConfirmationViewModel" Collapsed="true">
-    <Position X="7.5" Y="1.5" Width="1.5" />
+  <Class Name="StalkBook.Models.ExternalLoginConfirmationViewModel">
+    <Position X="37.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\AccountViewModels.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Models.ExternalLoginListViewModel" Collapsed="true">
-    <Position X="9.25" Y="1.5" Width="1.5" />
+  <Class Name="StalkBook.Models.ExternalLoginListViewModel">
+    <Position X="35.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
       <FileName>Models\AccountViewModels.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Models.SendCodeViewModel" Collapsed="true">
-    <Position X="4" Y="5.5" Width="1.5" />
+  <Class Name="StalkBook.Models.SendCodeViewModel">
+    <Position X="23.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAEAAAIAAAAAAAAAAAAAAAAAAIAAAAgAAA=</HashCode>
       <FileName>Models\AccountViewModels.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Models.VerifyCodeViewModel" Collapsed="true">
-    <Position X="7.5" Y="6.5" Width="1.5" />
+  <Class Name="StalkBook.Models.VerifyCodeViewModel">
+    <Position X="19.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAgAAAAAAEAAAAAAAgAAAAAAAAAAAAAAIAAAAgAAA=</HashCode>
       <FileName>Models\AccountViewModels.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Models.ForgotViewModel" Collapsed="true">
-    <Position X="2.25" Y="2.5" Width="1.5" />
+  <Class Name="StalkBook.Models.ForgotViewModel">
+    <Position X="5.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\AccountViewModels.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Models.LoginViewModel" Collapsed="true">
-    <Position X="2.25" Y="3.5" Width="1.5" />
+  <Class Name="StalkBook.Models.LoginViewModel">
+    <Position X="11" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAgAAA=</HashCode>
       <FileName>Models\AccountViewModels.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Models.RegisterViewModel" Collapsed="true">
-    <Position X="7.5" Y="4.5" Width="1.5" />
+  <Class Name="StalkBook.Models.RegisterViewModel">
+    <Position X="32" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAAAAACAAAAAAAAAAAACAAAAAAEAIAA=</HashCode>
       <FileName>Models\AccountViewModels.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Models.ResetPasswordViewModel" Collapsed="true">
-    <Position X="9.25" Y="4.5" Width="1.5" />
+  <Class Name="StalkBook.Models.ResetPasswordViewModel">
+    <Position X="14.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAAAAAAgAAAAAAAAAAACAAAAAAAAIAA=</HashCode>
       <FileName>Models\AccountViewModels.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Models.ForgotPasswordViewModel" Collapsed="true">
-    <Position X="0.5" Y="2.5" Width="1.5" />
+  <Class Name="StalkBook.Models.ForgotPasswordViewModel">
+    <Position X="2.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\AccountViewModels.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Models.GroupViewModel" Collapsed="true">
-    <Position X="11" Y="2.5" Width="1.5" />
+  <Class Name="StalkBook.Models.GroupViewModel">
+    <Position X="28.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>YAAAAEBAEAAAhAAAAAAAAAABBQAEAAAAAAAAAAAQAAA=</HashCode>
       <FileName>Models\GroupViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.Models.ApplicationUser" Collapsed="true">
-    <Position X="7.5" Y="0.5" Width="1.5" />
+    <Position X="9.25" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAACAAAAAAAAACAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
       <FileName>Models\IdentityModels.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.Models.ApplicationDbContext" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="4" Y="0.5" Width="1.5" />
+    <Position X="4" Y="12" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAgCAAAAAAAEAAAAAIAAAAAIAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\IdentityModels.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="StalkBook.Models.IndexViewModel" Collapsed="true">
-    <Position X="0.5" Y="3.5" Width="1.5" />
+  <Class Name="StalkBook.Models.IndexViewModel">
+    <Position X="30.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAIAAQAAAAAAAAAAAAAAQAAAEAEA=</HashCode>
       <FileName>Models\ManageViewModels.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Models.ManageLoginsViewModel" Collapsed="true">
-    <Position X="5.75" Y="3.5" Width="1.5" />
+  <Class Name="StalkBook.Models.ManageLoginsViewModel">
+    <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
       <FileName>Models\ManageViewModels.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Models.FactorViewModel" Collapsed="true">
-    <Position X="11" Y="1.5" Width="1.5" />
+  <Class Name="StalkBook.Models.FactorViewModel">
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
       <FileName>Models\ManageViewModels.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Models.SetPasswordViewModel" Collapsed="true">
-    <Position X="5.75" Y="5.5" Width="1.5" />
+  <Class Name="StalkBook.Models.SetPasswordViewModel">
+    <Position X="25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
       <FileName>Models\ManageViewModels.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Models.ChangeEmailViewModel" Collapsed="true">
-    <Position X="12.75" Y="0.5" Width="1.5" />
+  <Class Name="StalkBook.Models.ChangeEmailViewModel">
+    <Position X="9.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\ManageViewModels.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Models.ChangePasswordViewModel" Collapsed="true">
-    <Position X="0.5" Y="1.5" Width="1.5" />
+  <Class Name="StalkBook.Models.ChangePasswordViewModel">
+    <Position X="12.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAEAAAAAAAAAAAAAAIAA=</HashCode>
       <FileName>Models\ManageViewModels.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Models.AddPhoneNumberViewModel" Collapsed="true">
-    <Position X="2.25" Y="0.5" Width="1.5" />
+  <Class Name="StalkBook.Models.AddPhoneNumberViewModel">
+    <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\ManageViewModels.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Models.VerifyPhoneNumberViewModel" Collapsed="true">
-    <Position X="9.25" Y="6.5" Width="1.5" />
+  <Class Name="StalkBook.Models.VerifyPhoneNumberViewModel">
+    <Position X="21.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAgQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\ManageViewModels.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Models.ConfigureTwoFactorViewModel" Collapsed="true">
-    <Position X="4" Y="1.5" Width="1.5" />
+  <Class Name="StalkBook.Models.ConfigureTwoFactorViewModel">
+    <Position X="33.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAEAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\ManageViewModels.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Models.ProfileViewModel" Collapsed="true">
-    <Position X="5.75" Y="4.5" Width="1.5" />
+  <Class Name="StalkBook.Models.ProfileViewModel">
+    <Position X="16.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEBAEAAAkAAACQAAAAABAQAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\ProfileViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Models.SearchViewModel" Collapsed="true">
-    <Position X="2.25" Y="5.5" Width="1.5" />
+  <Class Name="StalkBook.Models.SearchViewModel">
+    <Position X="26.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAAACAAAAAAAAAAACAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\SearchViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Models.StatusViewModel" Collapsed="true">
-    <Position X="4" Y="6.5" Width="1.5" />
+  <Class Name="StalkBook.Models.StatusViewModel">
+    <Position X="18" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAABAEAAAgAAACECAAUAAAQAAgAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\StatusViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.Entity.UserStatusRating" Collapsed="true">
-    <Position X="5.75" Y="6.5" Width="1.5" />
+    <Position X="5.75" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAiAAACAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entity\UserStatusRating.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.Migrations.Configuration" Collapsed="true">
-    <Position X="2.25" Y="1.5" Width="1.5" />
+    <Position X="16.25" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Migrations\Configuration.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Service.GroupService" Collapsed="true">
-    <Position X="9.25" Y="2.5" Width="1.5" />
+  <Class Name="StalkBook.Service.GroupService">
+    <Position X="2.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAAAAEAAQAIAAAAAAACAAAAAAAAAAAACAAAEAABQ=</HashCode>
       <FileName>Service\GroupService.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Service.ManageService" Collapsed="true">
-    <Position X="7.5" Y="3.5" Width="1.5" />
+  <Class Name="StalkBook.Service.ManageService">
+    <Position X="4" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAQAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Service\ManageService.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Service.NewsfeedService" Collapsed="true">
-    <Position X="12.75" Y="3.5" Width="1.5" />
+  <Class Name="StalkBook.Service.NewsfeedService">
+    <Position X="9.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAAAAEAAQAAEAAAAAAAAAAAAAAAAAADAAAAAAAAA=</HashCode>
       <FileName>Service\NewsfeedService.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Service.ProfileService" Collapsed="true">
-    <Position X="4" Y="4.5" Width="1.5" />
+  <Class Name="StalkBook.Service.ProfileService">
+    <Position X="5.75" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAQAAAAACAAAAAAAAAAAQAAAJAAAAABAAA=</HashCode>
       <FileName>Service\ProfileService.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Service.SearchService" Collapsed="true">
-    <Position X="0.5" Y="5.5" Width="1.5" />
+  <Class Name="StalkBook.Service.SearchService">
+    <Position X="11" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAACAAgAAA=</HashCode>
       <FileName>Service\SearchService.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Service.StalkService" Collapsed="true">
-    <Position X="12.75" Y="5.5" Width="1.5" />
+  <Class Name="StalkBook.Service.StalkService">
+    <Position X="0.5" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAAQAAEAAAAAAAAAA=</HashCode>
       <FileName>Service\StalkService.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="StalkBook.Models.IAppDataContext" Collapsed="true">
-    <Position X="0.5" Y="7.75" Width="1.5" />
+    <Position X="7.75" Y="12" Width="1.5" />
     <TypeIdentifier>
       <HashCode>wAAgCAAAAAAAEAAAAAIAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\IdentityModels.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="StalkBook.Service.Ratings" Collapsed="true">
-    <Position X="0.5" Y="8.75" Width="1.5" />
+    <Position X="9.5" Y="12" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAIAAAAAAAAAAAABA=</HashCode>
       <FileName>Service\NewsfeedService.cs</FileName>
