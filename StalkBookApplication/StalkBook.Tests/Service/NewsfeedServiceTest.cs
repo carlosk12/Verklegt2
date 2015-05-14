@@ -239,7 +239,7 @@ namespace StalkBook.Tests.Service
             var result = service.GetAllAvailableStatuses("User1");
 
             // Assert
-            Assert.AreEqual(numberOfStatuses, result.Count());
+            Assert.AreEqual(numberOfStatuses, result.availableStatuses.Count());
         }
 
         [TestMethod]
@@ -252,7 +252,7 @@ namespace StalkBook.Tests.Service
             var result = service.GetAllAvailableStatuses("User3");
 
             // Assert
-            Assert.AreEqual(numberOfStatuses, result.Count());
+            Assert.AreEqual(numberOfStatuses, result.availableStatuses.Count());
         }
 
         [TestMethod]

@@ -22,6 +22,7 @@ namespace StalkBook.Models
         public string fullName { get; set; }
         public IEnumerable<Status> availableStatuses { get; set; }
         public IEnumerable<UserStatusRating> myRatings { get; set; }
+        public IEnumerable<Profile> profiles { get; set; }
 
     }
 }

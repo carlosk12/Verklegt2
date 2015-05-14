@@ -18,6 +18,8 @@
 <div class="all-statuses" id="all-statuses">
     @foreach (var item in Model.availableStatuses)
     {
+        var profile = Model.profiles.Where(s => s.userID == item.userId).SingleOrDefault();
+        var profilePic = profile.profilePicUrl;
         var statusRating = Model.myRatings.Where(s => s.statusId == item.ID).SingleOrDefault();
         var rating = item.upvotes - item.downvotes;    
         <div class="content" data-id="@item.ID">
@@ -38,7 +40,8 @@
             }
             <p class="status-rating">@rating</p>  
             <div class="status-main">
-                <p>@Html.ActionLink(item.fullName, "GetProfile", "Profile", new { Id = item.userId }, null)</p>
+                @Html.ActionLink(item.fullName, "GetProfile", "Profile", new { Id = item.userId }, new { @class = "user-fullName" })
+                <img class="profile-picture-icon" src="@Url.Content(profilePic)" alt="Profile Picture" />
                 <p>@item.timeCreated.Date.ToShortDateString() @item.timeCreated.ToShortTimeString()</p>
                 <p class="test">@item.body</p>
                 @if (!String.IsNullOrEmpty(item.urlToPic))

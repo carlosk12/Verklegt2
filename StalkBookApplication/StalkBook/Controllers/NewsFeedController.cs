@@ -13,13 +13,14 @@ namespace StalkBook.Controllers
     public class NewsFeedController : Controller
     {
         private NewsfeedService service = new NewsfeedService(null);
+        private ProfileService newsFeedService = new ProfileService(null);
         // GET: NewsFeed
         public ActionResult Index()
         {
-            var statuses = service.GetAllAvailableStatuses(User.Identity.GetUserId());
-            var model = new StatusViewModel();
-            model.availableStatuses = statuses;
+            var model = service.GetAllAvailableStatuses(User.Identity.GetUserId());
+            //model.availableStatuses = statuses;
             model.myRatings = service.GetRatingByUserId(User.Identity.GetUserId());
+
 
             return View(model);
         }

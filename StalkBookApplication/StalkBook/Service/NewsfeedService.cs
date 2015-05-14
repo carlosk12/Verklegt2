@@ -37,17 +37,20 @@ namespace StalkBook.Service
             }
         }
 
-		public IEnumerable<Status> GetAllAvailableStatuses(string userId)
+		public StatusViewModel GetAllAvailableStatuses(string userId)
 		{
             try
             {
+                var model = new StatusViewModel();
                 List<string> result1 = (from s in db.stalking
                                         where s.userId == userId
                                         select s.stalkedId.ToString()).ToList();
 
                 var result = (from us in db.userStatuses where result1.Contains(us.userId) where us.groupId == null orderby us.timeCreated descending select us).Take(50);
+                model.availableStatuses = result;
+                model.profiles = (from p in db.profiles where result1.Contains(p.userID) select p).ToList();
 
-                return result;
+                return model;
             }
             catch (Exception ex)
             {

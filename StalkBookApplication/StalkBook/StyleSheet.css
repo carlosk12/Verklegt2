@@ -44,6 +44,11 @@ button[type=submit]
     top: 2%;
 }
 
+.delete-link
+{
+    float:right;
+}
+
 .navbar
 {
     background-color: rgb(51, 204, 204);
@@ -431,11 +436,9 @@ button[type=submit]
 .elegant-aero select {
     background: #fbfbfb url('down-arrow.png') no-repeat right;
     background: #fbfbfb url('down-arrow.png') no-repeat right;
-   appearance:none;
     -webkit-appearance:none; 
    -moz-appearance: none;
     text-indent: 0.01px;
-    text-overflow: '';
     width: 70%;
 }
 .elegant-aero .button{
