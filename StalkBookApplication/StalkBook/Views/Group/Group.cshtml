@@ -49,6 +49,10 @@
                         <img class="status-picture" src="@Url.Content(item.urlToPic)" alt="Image" />
                     </a>
                 }
+                @if (Model.myId == item.userId)
+                {
+                    @Html.ActionLink("Delete", "DeleteStatus", "Group", new { Id = item.ID, groupId = item.groupId }, new { @class = "delete-status" })
+                }
             </div>
 
         </div>

@@ -15,6 +15,7 @@ namespace StalkBook.Controllers
     {
         private GroupService service = new GroupService(null);
         private NewsfeedService newsFeedService = new NewsfeedService(null);
+        private ProfileService profileService = new ProfileService(null);
         // GET: Group
         public ActionResult Index()
         {
@@ -86,6 +87,18 @@ namespace StalkBook.Controllers
             var model = service.GetGroupById((int)status.groupId);
             model.myId = theUserId;
             model.myRatings = newsFeedService.GetRatingByUserId(User.Identity.GetUserId());
+            return View("Group", model);
+        }
+
+        public ActionResult DeleteStatus(int Id, int groupId)
+        {
+            profileService.DeleteStatus(Id);
+
+            var model = service.GetGroupById(groupId);
+            string theUserId = User.Identity.GetUserId();
+            model.myId = theUserId;
+            model.myRatings = newsFeedService.GetRatingByUserId(User.Identity.GetUserId());
+
             return View("Group", model);
         }
     }
