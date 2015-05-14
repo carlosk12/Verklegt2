@@ -216,7 +216,7 @@ namespace StalkBook.Tests.Service
 
             List<string> groupProfileList = new List<string>{"User1"};
 
-            var expectedResult = new SearchViewModel { searchString = "Group", userId = "User3", searchResult = profiles };
+            //var expectedResult = new SearchViewModel { searchString = "Group", userId = "User3", searchResult = profiles };
             var numberOfResults = 0;
 
             // Act
