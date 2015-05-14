@@ -97,7 +97,6 @@
     <Compile Include="Service\ProfileServiceTest.cs" />
     <Compile Include="Service\SearchServiceTest.cs" />
     <Compile Include="Service\StalkServiceTest.cs" />
-    <Compile Include="Service\ManageServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
