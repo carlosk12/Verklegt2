@@ -3,6 +3,11 @@
     padding-bottom: 0;
 }
 
+#all-statuses
+{
+    word-wrap: break-word;
+}
+
 .body-content
 {
     background-color: #eaeaea;
