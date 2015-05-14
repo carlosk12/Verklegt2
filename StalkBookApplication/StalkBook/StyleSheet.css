@@ -370,7 +370,6 @@ button[type=submit]
     margin-right:auto;
 
     max-width: 500px;
-    background: #BBEAED;
     padding: 20px 20px 20px 20px;
     font: 12px Arial, Helvetica, sans-serif;
     color: #666;
@@ -409,7 +408,7 @@ button[type=submit]
     color: #888;
     width: 70%;
     padding: 0px 0px 0px 5px;
-    border: 1px solid #C5E2FF;
+    border: 1px solid #cccccc;
     background: #FBFBFB;
     outline: 0;
     -webkit-box-shadow:inset 0px 1px 6px #ECF3F5;
