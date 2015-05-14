@@ -39,99 +39,137 @@ namespace StalkBook.Service
 
 		public IEnumerable<Status> GetAllAvailableStatuses(string userId)
 		{
-            List<string> result1 = (from s in db.stalking
-                                    where s.userId == userId
-                                    select s.stalkedId.ToString()).ToList();
+            try
+            {
+                List<string> result1 = (from s in db.stalking
+                                        where s.userId == userId
+                                        select s.stalkedId.ToString()).ToList();
 
-            var result = (from us in db.userStatuses where result1.Contains(us.userId) where us.groupId == null orderby us.timeCreated descending select us).Take(50);
+                var result = (from us in db.userStatuses where result1.Contains(us.userId) where us.groupId == null orderby us.timeCreated descending select us).Take(50);
 
-			return result;
+                return result;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Write(ex.Message + Environment.NewLine + "Location of error: " + ex.Source +
+                    Environment.NewLine + "StackTrace: " + Environment.NewLine + ex.StackTrace +
+                    Environment.NewLine + "Time : " + DateTime.Now + Environment.NewLine);
+                return null;
+            }          
 		}
 
         public void PostStatus(string userId, Status userStatus)
         {
-            userStatus.userId = userId;
-            userStatus.timeCreated = System.DateTime.Now;
-			userStatus.fullName = (from p in db.profiles
-                            where p.userID == userId
-                            select p.name).SingleOrDefault();
-			if(!String.IsNullOrEmpty(userStatus.urlToPic))
-			{
-				userStatus.urlToPic = userStatus.urlToPic;
-			}			
-            db.userStatuses.Add(userStatus);
-            db.SaveChanges();
+            try
+            {
+                userStatus.userId = userId;
+                userStatus.timeCreated = System.DateTime.Now;
+                userStatus.fullName = (from p in db.profiles
+                                       where p.userID == userId
+                                       select p.name).SingleOrDefault();
+                if (!String.IsNullOrEmpty(userStatus.urlToPic))
+                {
+                    userStatus.urlToPic = userStatus.urlToPic;
+                }
+                db.userStatuses.Add(userStatus);
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Write(ex.Message + Environment.NewLine + "Location of error: " + ex.Source +
+                    Environment.NewLine + "StackTrace: " + Environment.NewLine + ex.StackTrace +
+                    Environment.NewLine + "Time : " + DateTime.Now + Environment.NewLine);
+            }     
         }
 
         public IEnumerable<UserStatusRating> GetRatingByUserId(string userId)
         {
-            var result = (from r in db.userStatusRating
-                         where r.userId == userId
-                         select r).ToList();
+            try
+            {
+                var result = (from r in db.userStatusRating
+                              where r.userId == userId
+                              select r).ToList();
 
-            return result;
+                return result;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Write(ex.Message + Environment.NewLine + "Location of error: " + ex.Source +
+                    Environment.NewLine + "StackTrace: " + Environment.NewLine + ex.StackTrace +
+                    Environment.NewLine + "Time : " + DateTime.Now + Environment.NewLine);
+                return null;
+            }          
         }
 
         public void UpdateRating(string userId, int currRating, string arrowDirection, int statusId)
         {
-            var myRating = (from r in db.userStatusRating
-                            where r.userId == userId
-                            where r.statusId == statusId
-                            select r).SingleOrDefault();
-            var result = new UserStatusRating();
-            var status = (from s in db.userStatuses
-                          where s.ID == statusId
-                          select s).SingleOrDefault();
+            try
+            {
+                var myRating = (from r in db.userStatusRating
+                                where r.userId == userId
+                                where r.statusId == statusId
+                                select r).SingleOrDefault();
+                var result = new UserStatusRating();
+                var status = (from s in db.userStatuses
+                              where s.ID == statusId
+                              select s).SingleOrDefault();
 
-            if(arrowDirection == "up" && currRating != (int)Ratings.Upvote)
-            {
-                result.rating = (int)Ratings.Upvote;
-                result.statusId = statusId;
-                result.userId = userId;
-                if(currRating == (int)Ratings.Downvote)
+                if (arrowDirection == "up" && currRating != (int)Ratings.Upvote)
                 {
-                    status.downvotes--;
+                    result.rating = (int)Ratings.Upvote;
+                    result.statusId = statusId;
+                    result.userId = userId;
+                    if (currRating == (int)Ratings.Downvote)
+                    {
+                        status.downvotes--;
+                    }
+                    status.upvotes++;
                 }
-                status.upvotes++;         
-            }
-            else if (arrowDirection == "down" && currRating != (int)Ratings.Downvote)
-            {
-                result.rating = (int)Ratings.Downvote;
-                result.statusId = statusId;
-                result.userId = userId;
-                if(currRating == (int)Ratings.Upvote)
+                else if (arrowDirection == "down" && currRating != (int)Ratings.Downvote)
                 {
-                    status.upvotes--;
-                }
-                status.downvotes++;
-            }
-            else
-            {
-                result.rating = (int)Ratings.Neutral;
-                result.statusId = statusId;
-                result.userId = userId;
-                if (arrowDirection == "up")
-                {
-                    status.upvotes--;
+                    result.rating = (int)Ratings.Downvote;
+                    result.statusId = statusId;
+                    result.userId = userId;
+                    if (currRating == (int)Ratings.Upvote)
+                    {
+                        status.upvotes--;
+                    }
+                    status.downvotes++;
                 }
                 else
                 {
-                    status.downvotes--;
+                    result.rating = (int)Ratings.Neutral;
+                    result.statusId = statusId;
+                    result.userId = userId;
+                    if (arrowDirection == "up")
+                    {
+                        status.upvotes--;
+                    }
+                    else
+                    {
+                        status.downvotes--;
+                    }
                 }
+
+
+
+                if (myRating != null)
+                {
+                    myRating.rating = result.rating;
+                }
+                else
+                {
+                    db.userStatusRating.Add(result);
+                }
+
+                db.SaveChanges();
             }
-
-            
-
-            if(myRating != null)
+            catch (Exception ex)
             {
-                myRating.rating = result.rating;
-            }
-            else
-            {
-                db.userStatusRating.Add(result);
-            }
-
-            db.SaveChanges();
+                System.Diagnostics.Debug.Write(ex.Message + Environment.NewLine + "Location of error: " + ex.Source +
+                    Environment.NewLine + "StackTrace: " + Environment.NewLine + ex.StackTrace +
+                    Environment.NewLine + "Time : " + DateTime.Now + Environment.NewLine);
+            }             
         }
     }
 }
