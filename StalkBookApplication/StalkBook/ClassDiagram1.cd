@@ -1,56 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="StalkBook.BundleConfig">
-    <Position X="11" Y="11.5" Width="1.5" />
+    <Position X="11" Y="11" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>App_Start\BundleConfig.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.FilterConfig">
-    <Position X="12.75" Y="11.5" Width="1.5" />
+    <Position X="12.75" Y="11" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>App_Start\FilterConfig.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.ApplicationUserManager">
-    <Position X="9.25" Y="14.5" Width="1.5" />
+    <Position X="9.25" Y="14" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>App_Start\IdentityConfig.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.ApplicationSignInManager">
-    <Position X="7.5" Y="14.5" Width="1.5" />
+    <Position X="7.5" Y="14" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>App_Start\IdentityConfig.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.RouteConfig">
-    <Position X="12.75" Y="14.5" Width="1.5" />
+    <Position X="12.75" Y="14" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>App_Start\RouteConfig.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.Startup">
-    <Position X="11" Y="14.5" Width="1.5" />
+    <Position X="11" Y="14" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAgAAAAAAAAAA=</HashCode>
       <FileName>App_Start\Startup.Auth.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.MvcApplication">
-    <Position X="0.5" Y="14.5" Width="1.5" />
+    <Position X="0.5" Y="14" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
       <FileName>Global.asax.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Controllers.AccountController">
+  <Class Name="StalkBook.Controllers.AccountController" Collapsed="true">
     <Position X="11" Y="4" Width="1.5" />
+    <Members>
+      <Field Name="_signInManager" Hidden="true" />
+      <Field Name="_userManager" Hidden="true" />
+      <Property Name="AuthenticationManager" Hidden="true" />
+      <Property Name="SignInManager" Hidden="true" />
+      <Property Name="UserManager" Hidden="true" />
+      <Field Name="XsrfKey" Hidden="true" />
+    </Members>
     <NestedTypes>
       <Class Name="StalkBook.Controllers.AccountController.ChallengeResult" Collapsed="true">
         <TypeIdentifier>
@@ -66,12 +74,37 @@
   <Class Name="StalkBook.Controllers.GroupController">
     <Position X="9.25" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAEQAAAAgAAAAAAAAAAAEAAAAAAEEAAAEAAAA=</HashCode>
+      <HashCode>AAAAIAAAEQAAAAgAAAAAAAAAAAEAAAAAAFEAAAEAAAA=</HashCode>
       <FileName>Controllers\GroupController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StalkBook.Controllers.ManageController" Collapsed="true">
+  <Class Name="StalkBook.Controllers.ManageController">
     <Position X="4" Y="4" Width="1.5" />
+    <Members>
+      <Field Name="_signInManager" Hidden="true" />
+      <Field Name="_userManager" Hidden="true" />
+      <Method Name="AddErrors" Hidden="true" />
+      <Method Name="AddPhoneNumber" Hidden="true" />
+      <Property Name="AuthenticationManager" Hidden="true" />
+      <Method Name="ChangePassword" Hidden="true" />
+      <Method Name="DisableTwoFactorAuthentication" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="EnableTwoFactorAuthentication" Hidden="true" />
+      <Method Name="HasPassword" Hidden="true" />
+      <Method Name="HasPhoneNumber" Hidden="true" />
+      <Method Name="Index" Hidden="true" />
+      <Method Name="LinkLogin" Hidden="true" />
+      <Method Name="LinkLoginCallback" Hidden="true" />
+      <Method Name="ManageController" Hidden="true" />
+      <Method Name="ManageLogins" Hidden="true" />
+      <Method Name="RemoveLogin" Hidden="true" />
+      <Method Name="RemovePhoneNumber" Hidden="true" />
+      <Method Name="SetPassword" Hidden="true" />
+      <Property Name="SignInManager" Hidden="true" />
+      <Property Name="UserManager" Hidden="true" />
+      <Method Name="VerifyPhoneNumber" Hidden="true" />
+      <Field Name="XsrfKey" Hidden="true" />
+    </Members>
     <NestedTypes>
       <Enum Name="StalkBook.Controllers.ManageController.ManageMessageId" Collapsed="true">
         <TypeIdentifier>
@@ -94,7 +127,7 @@
   <Class Name="StalkBook.Controllers.ProfileController">
     <Position X="5.75" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAQAAAFEAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAQAAAFEAAAAAAAg=</HashCode>
       <FileName>Controllers\ProfileController.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -113,35 +146,35 @@
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.Models.Group">
-    <Position X="9.25" Y="11.5" Width="1.5" />
+    <Position X="9.25" Y="11" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAgAAAAAAAAAgAAAAAAAAEAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entity\Group.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.Models.GroupProfileFK">
-    <Position X="7.5" Y="11.5" Width="1.5" />
+    <Position X="7.5" Y="11" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACAAAAAAAAAgAAAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entity\GroupProfileFK.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.Models.Profile">
-    <Position X="5.75" Y="11.5" Width="1.5" />
+    <Position X="5.75" Y="11" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAgAAACQAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entity\Profile.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.Models.Stalking">
-    <Position X="0.5" Y="11.5" Width="1.5" />
+    <Position X="0.5" Y="11" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAgCAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entity\Stalking.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.Models.Status">
-    <Position X="2.25" Y="11.5" Width="1.5" />
+    <Position X="2.25" Y="11" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAEAAAhAAACACAAUAAAQAAgAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entity\Status.cs</FileName>
@@ -169,14 +202,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.Models.ApplicationUser">
-    <Position X="5.75" Y="14.5" Width="1.5" />
+    <Position X="5.75" Y="14" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAACAAAAAAAAACAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
       <FileName>Models\IdentityModels.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.Models.ApplicationDbContext" BaseTypeListCollapsed="true">
-    <Position X="4" Y="14.5" Width="1.5" />
+    <Position X="4" Y="14" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAgCAAAAAAAEAAAAAIAAAAAIAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\IdentityModels.cs</FileName>
@@ -228,19 +261,19 @@
   <Class Name="StalkBook.Models.StatusViewModel">
     <Position X="16.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAABAEAAAgAAACEKAAUAAAQAAgAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAABAEAAAgAAACEKAAUAAAQAAgAAAAAAAAAAQAAA=</HashCode>
       <FileName>Models\StatusViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.Entity.UserStatusRating">
-    <Position X="4" Y="11.5" Width="1.5" />
+    <Position X="4" Y="11" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAiAAACAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entity\UserStatusRating.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="StalkBook.Migrations.Configuration">
-    <Position X="14.5" Y="11.5" Width="1.5" />
+    <Position X="14.5" Y="11" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Migrations\Configuration.cs</FileName>
@@ -270,7 +303,7 @@
   <Class Name="StalkBook.Service.ProfileService">
     <Position X="5.75" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAAQAAAJAAAAABAAA=</HashCode>
+      <HashCode>CAAAAAAAAAAQAAAAAAAAAAAAAAAAAQAAAJAAAAABAAA=</HashCode>
       <FileName>Service\ProfileService.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -289,7 +322,7 @@
     </TypeIdentifier>
   </Class>
   <Interface Name="StalkBook.Models.IAppDataContext">
-    <Position X="2.25" Y="14.5" Width="1.5" />
+    <Position X="2.25" Y="14" Width="1.5" />
     <TypeIdentifier>
       <HashCode>wAAgCAAAAAAAEAAAAAIAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\IdentityModels.cs</FileName>
