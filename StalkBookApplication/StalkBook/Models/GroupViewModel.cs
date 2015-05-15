@@ -19,6 +19,7 @@ namespace StalkBook.Models
         public string body { get; set; }
         public string urlToPic { get; set; }
         public IEnumerable<UserStatusRating> myRatings { get; set; }
+        public bool userIsInGroup { get; set; }
         
     }
 }

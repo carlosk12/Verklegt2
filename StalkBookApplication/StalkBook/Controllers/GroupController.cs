@@ -46,9 +46,11 @@ namespace StalkBook.Controllers
         public ActionResult GetGroupById(int groupId)
         {
             string theUserId = User.Identity.GetUserId();
-            var model = service.GetGroupById(groupId);
+            var model = service.GetGroupById(groupId, theUserId);
             model.myId = theUserId;
             model.myRatings = newsFeedService.GetRatingByUserId(User.Identity.GetUserId());
+           
+        
 
             return View("Group", model);
         }
@@ -84,7 +86,7 @@ namespace StalkBook.Controllers
             string theUserId = User.Identity.GetUserId();
             service.PostStatus(theUserId, status);
 
-            var model = service.GetGroupById((int)status.groupId);
+            var model = service.GetGroupById((int)status.groupId, theUserId);
             model.myId = theUserId;
             model.myRatings = newsFeedService.GetRatingByUserId(User.Identity.GetUserId());
             return View("Group", model);
@@ -92,10 +94,9 @@ namespace StalkBook.Controllers
 
         public ActionResult DeleteStatus(int Id, int groupId)
         {
-            profileService.DeleteStatus(Id);
-
-            var model = service.GetGroupById(groupId);
+            profileService.DeleteStatus(Id);      
             string theUserId = User.Identity.GetUserId();
+            var model = service.GetGroupById(groupId, theUserId);
             model.myId = theUserId;
             model.myRatings = newsFeedService.GetRatingByUserId(User.Identity.GetUserId());
 

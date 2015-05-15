@@ -36,7 +36,7 @@ namespace StalkBook.Service
 			}       
         }
 
-        public GroupViewModel GetGroupById(int groupId)
+        public GroupViewModel GetGroupById(int groupId, string theUserId)
         {
 			try
 			{
@@ -51,6 +51,18 @@ namespace StalkBook.Service
 									   orderby gs.timeCreated descending
 									   select gs).ToList();
 				model.groupId = groupId;
+                var getGroup = (from g in db.groupProfileFks
+                                where g.groupID == groupId
+                                where g.profileID == theUserId
+                                select g).FirstOrDefault();
+                if(getGroup == null)
+                {
+                    model.userIsInGroup = false;
+                }
+                else
+                {
+                    model.userIsInGroup = true;
+                }
 
 				return model;
 			}

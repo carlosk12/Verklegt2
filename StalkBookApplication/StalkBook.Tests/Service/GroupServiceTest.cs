@@ -158,7 +158,7 @@ namespace StalkBook.Tests.Service
 			var expectedResult = new GroupViewModel { name = "group1", groupStatuses = statuses, groupId = 1 };
 
             // Act
-			var result = service.GetGroupById(1);
+			var result = service.GetGroupById(1, "User1");
 
             // Assert
 			Assert.AreEqual(expectedResult.groupStatuses.ElementAt(0).ID, result.groupStatuses.ElementAt(0).ID);
@@ -177,7 +177,7 @@ namespace StalkBook.Tests.Service
 			// Arrange
 			
 			// Act
-			var result = service.GetGroupById(3);
+			var result = service.GetGroupById(3, "User3");
 
 			// Assert
 			Assert.IsNull(result);
