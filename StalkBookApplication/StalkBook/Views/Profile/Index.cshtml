@@ -66,7 +66,7 @@
                 }
                 @if (Model.myId == item.userId)
                 {
-                    @Html.ActionLink("Delete", "DeleteStatus", "Profile", new { Id = item.ID }, new { @class = "delete-status" })
+                    @Html.ActionLink("Delete", "DeleteStatus", "Profile", new { Id = item.ID }, new { @class = "delete-status btn btn-default btn-xs" })
                 }
             </div>
 
