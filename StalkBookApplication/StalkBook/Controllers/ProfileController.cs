@@ -53,8 +53,8 @@ namespace StalkBook.Controllers
 		{
             var theUserId = User.Identity.GetUserId();
 			var model = service.ViewStalking(Id, theUserId);
+            model.ElementAt(0).myId = theUserId;
             
-
 			return View("Stalking", model);
 		}
 
@@ -62,8 +62,8 @@ namespace StalkBook.Controllers
 		{
             var theUserId = User.Identity.GetUserId();
 			var model = service.ViewStalkers(Id, theUserId);
+            model.ElementAt(0).myId = theUserId;
             
-
 			return View("Stalking", model);
 		}
     }
