@@ -19,13 +19,16 @@
         {
             <div data-id="@Model.ElementAt(i).userID" class="search-body content">
                 @Html.ActionLink(Model.ElementAt(i).name, "GetProfile", "Profile", new { Id = Model.ElementAt(i).userID }, new { @class = "user-fullName" })
-                @if (Model.ElementAt(i).stalking.Contains(Model.ElementAt(i).userID))
+                @if()
                 {
-                <button class="btn btn-primary btn-sm stalk-button search-button">Stalking</button>
-                }
-                else
-                {
-                <button class="btn btn-default btn-sm stalk-button search-button">Stalk</button>
+                    @if (Model.ElementAt(0).stalking.Contains(Model.ElementAt(i).userID))
+                    {
+                    <button class="btn btn-primary btn-sm stalk-button search-button">Stalking</button>
+                    }
+                    else
+                    {
+                    <button class="btn btn-default btn-sm stalk-button search-button">Stalk</button>
+                    }
                 }
             </div>
         }
