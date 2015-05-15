@@ -1,12 +1,12 @@
-﻿body 
+﻿#all-statuses
+{
+    word-wrap: break-word;
+}
+
+body 
 {
     padding-bottom: 0;
     background-image: url("http://www.unsigneddesign.com/Seamless_background_textures/thumbs/seamlesstexture21_1200.jpg");
-}
-
-#all-statuses
-{
-    word-wrap: break-word;
 }
 
 .body-content
@@ -18,51 +18,9 @@
     box-shadow: 0px 0px 100px rgba(170,170,170,.5);
 }
 
-.create-group 
-{
-    width: 350px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.newsfeed-box
-{
-    width: 280px;
-    height: 225px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2%;
-}
-
 button[type=submit]
 {
     float:right;
-}
-
-.search-box
-{
-    position: fixed;
-    width: 240px;
-    height: 26px;
-    left: 40%;
-    top: 2%;
-}
-
-.delete-link
-{
-    float:right;
-}
-
-.navbar
-{
-    background-color: rgb(51, 204, 204);
-    background: linear-gradient(to bottom, #33cccc 0%,#0fb4e7 100%);
-    border-bottom: none;  
-}
-
-.navbar-inverse .navbar-nav > li > a 
-{
-    color: rgb(255, 255, 255);
 }
 
 .content
@@ -81,40 +39,16 @@ button[type=submit]
     box-shadow: 0px 0px 0px 5px rgba(200,200,200,0.2);
 }
 
-.status-body
+.create-group 
 {
-    padding-bottom: 6px;
-    padding-top: 6px;
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.user-fullName
+.delete-link
 {
-    display:inline;
-}
-
-.search-body
-{
-    padding-bottom: 10px;
-    padding-top: 10px;
-    width: 500px;
-}
-
-.search-fullName
-{
-    display:inline;
-}
-
-.welcome-message
-{
-    color: white;
-}
-
-.search-button
-{
-    float: right;
-    position: relative;
-    top: -5px;
-    right: 8px;
+    float:right;
 }
 
 .delete-status
@@ -123,40 +57,36 @@ button[type=submit]
     width: 50px;
 }
 
-.status-main
-{
-    margin-top: -15px
-} 
-
-.status-picture
-{
-    width: 300px;
-    height: auto;
-}
-
-.stalking-list
-{
-    margin-top: 50px;
-}
-
-.upvoted
+.downvoted 
 {
   background-image: url("http://www.redditstatic.com/sprite-reddit.EMWQffWtZwo.png");
-  background-position: -83px -818px;
+  background-position: -41px -818px;
   background-repeat: no-repeat;
   display: inline-block;
   height: 15px;
   width: 17px;
   position: relative;
-  right: 25px;
-  top: 2px;
+  right: 45px;
+  top: 33px;
   font-size: 0;
 }
 
-.downvoted 
+.navbar
+{
+    background-color: rgb(51, 204, 204);
+    background: linear-gradient(to bottom, #33cccc 0%,#0fb4e7 100%);
+    border-bottom: none;  
+}
+
+.navbar-inverse .navbar-nav > li > a 
+{
+    color: rgb(255, 255, 255);
+}
+
+.neutral-down
 {
   background-image: url("http://www.redditstatic.com/sprite-reddit.EMWQffWtZwo.png");
-  background-position: -41px -818px;
+  background-position: -20px -818px;
   background-repeat: no-repeat;
   display: inline-block;
   height: 15px;
@@ -181,26 +111,13 @@ button[type=submit]
   font-size: 0;
 }
 
-.neutral-down
+.newsfeed-box
 {
-  background-image: url("http://www.redditstatic.com/sprite-reddit.EMWQffWtZwo.png");
-  background-position: -20px -818px;
-  background-repeat: no-repeat;
-  display: inline-block;
-  height: 15px;
-  width: 17px;
-  position: relative;
-  right: 45px;
-  top: 33px;
-  font-size: 0;
-}
-
-.status-rating
-{
-  display: inline;
-  position: relative;
-  right: 62px;
-  top: 29px;
+    width: 280px;
+    height: 225px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
 }
 
 .profile-info
@@ -226,8 +143,92 @@ button[type=submit]
     float: right;
 }
 
-textarea {
+.search-body
+{
+    padding-bottom: 10px;
+    padding-top: 10px;
+    width: 500px;
+}
+
+.search-box
+{
+    position: fixed;
+    width: 240px;
+    height: 26px;
+    left: 40%;
+    top: 2%;
+}
+
+.search-button
+{
+    float: right;
+    position: relative;
+    top: -5px;
+    right: 8px;
+}
+
+.search-fullName
+{
+    display:inline;
+}
+
+.status-body
+{
+    padding-bottom: 6px;
+    padding-top: 6px;
+}
+
+.stalking-list
+{
+    margin-top: 50px;
+}
+
+.status-main
+{
+    margin-top: -15px
+} 
+
+.status-picture
+{
+    width: 300px;
+    height: auto;
+}
+
+.status-rating
+{
+  display: inline;
+  position: relative;
+  right: 62px;
+  top: 29px;
+}
+
+textarea 
+{
     resize: none;
+}
+
+.user-fullName
+{
+    display:inline;
+}
+
+.upvoted
+{
+  background-image: url("http://www.redditstatic.com/sprite-reddit.EMWQffWtZwo.png");
+  background-position: -83px -818px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 15px;
+  width: 17px;
+  position: relative;
+  right: 25px;
+  top: 2px;
+  font-size: 0;
+}
+
+.welcome-message
+{
+    color: white;
 }
 
 .cssmenu ul,
