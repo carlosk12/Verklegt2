@@ -34,6 +34,9 @@ namespace StalkBook.Service
             result.userStatuses = myStatuses;
             result.userID = profileInfo.userID;
 			result.profilePicUrl = profileInfo.profilePicUrl;
+			result.stalking = (	from s in db.stalking
+								where s.userId == id
+								select s.stalkedId).ToList();
 
 			return result;
 		}
