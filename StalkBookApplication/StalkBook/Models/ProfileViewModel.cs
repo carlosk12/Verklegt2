@@ -19,5 +19,6 @@ namespace StalkBook.Models
         public string urlToPic { get; set; }
         public string myId { get; set; }
 		public List<string> stalking { get; set; }
+        public List<string> myStalkings { get; set; }
     }
 }

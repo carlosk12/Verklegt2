@@ -51,14 +51,18 @@ namespace StalkBook.Controllers
 
 		public ActionResult Stalking(string Id)
 		{
-			var model = service.ViewStalking(Id);
+            var theUserId = User.Identity.GetUserId();
+			var model = service.ViewStalking(Id, theUserId);
+            
 
 			return View("Stalking", model);
 		}
 
 		public ActionResult Stalkers(string Id)
 		{
-			var model = service.ViewStalkers(Id);
+            var theUserId = User.Identity.GetUserId();
+			var model = service.ViewStalkers(Id, theUserId);
+            
 
 			return View("Stalking", model);
 		}

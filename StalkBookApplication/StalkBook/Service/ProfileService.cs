@@ -84,7 +84,7 @@ namespace StalkBook.Service
 			db.SaveChanges();
 		}
 
-		public IEnumerable<ProfileViewModel> ViewStalking(string Id)
+		public IEnumerable<ProfileViewModel> ViewStalking(string Id, string theUserId)
 		{
 			List<ProfileViewModel> profiles = new List<ProfileViewModel>();
 
@@ -100,12 +100,15 @@ namespace StalkBook.Service
 			}
 
 			profiles = profiles.OrderBy(x => x.name).ToList();
+            myProfile.myStalkings = (from p in db.stalking
+                                     where p.userId == theUserId
+                                     select p.stalkedId).ToList();
 			profiles.Insert(0, myProfile);
 
 			return profiles;
 		}
 
-		public IEnumerable<ProfileViewModel> ViewStalkers(string Id)
+		public IEnumerable<ProfileViewModel> ViewStalkers(string Id, string theUserId)
 		{
 			List<ProfileViewModel> profiles = new List<ProfileViewModel>();
 
@@ -121,6 +124,9 @@ namespace StalkBook.Service
 			}
 
 			profiles = profiles.OrderBy(x => x.name).ToList();
+            myProfile.myStalkings = (from p in db.stalking
+                                     where p.userId == theUserId
+                                     select p.stalkedId).ToList();
 			profiles.Insert(0, myProfile);
 
 			return profiles;
