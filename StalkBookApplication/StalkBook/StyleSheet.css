@@ -65,13 +65,10 @@ button[type=submit]
     color: rgb(255, 255, 255);
 }
 
-.group-link
-{
-    display: inline-block;
-}
 .content
 {
     background-color: white;
+    background-image: url("http://subtlepatterns.com/patterns/confectionary.png");
     width: 380px;
     margin-bottom: 20px;
     margin-right: auto;
@@ -187,11 +184,11 @@ button[type=submit]
 
 .profile-info
 {
-    margin-left: 21%;
-    margin-right: 30%;
-    width: 100%;
-    padding: 20px 20px 20px 20px;
-    float: none;
+    padding: 35px 0;
+    margin-left: auto;
+    margin-right: auto; 
+    width: 256px;
+    text-align: center;
 }
 
 .profile-picture
@@ -463,4 +460,3 @@ button[type=submit]
 .elegant-aero .button:hover{
     background: #3EB1DD;
 }
-
