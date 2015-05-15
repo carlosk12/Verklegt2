@@ -28,6 +28,7 @@ namespace StalkBook.Service
                 profiles = profiles.Where(s => s.name.Contains(searchString));
             }
             model.searchResult = profiles.ToList();
+            model.searchResult.Sort((x, y) => string.Compare(x.name, y.name));
             model.stalking = (from s in db.stalking
                               where s.userId == userId
                               select s.stalkedId).ToList();
@@ -40,14 +41,17 @@ namespace StalkBook.Service
         public GroupViewModel SearchGroups(string userId, string searchString)
         {
             var model = new GroupViewModel();
-            var groups = from g in db.groups
-                           select g;
+            var groups = (from g in db.groups
+                           select g).ToList();
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                groups = groups.Where(s => s.name.Contains(searchString));
+                groups = groups.Where(s => s.name.Contains(searchString)).ToList();
             }
-            model.groups = groups.ToList();
+            
+
+            groups.Sort((x, y) => string.Compare(x.name, y.name));
+            model.groups = groups;
             model.groupsJoined = (from s in db.groupProfileFks
                               where s.profileID == userId
                               select s.groupID).ToList();
