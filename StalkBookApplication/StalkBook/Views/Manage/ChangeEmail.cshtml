@@ -4,12 +4,11 @@
     ViewBag.Title = "Change Email";
 }
 
-<h2>Change Email View</h2>
+<h2>Change Email</h2>
 
 @using (Html.BeginForm("ChangeEmail", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <h4>Change Email Form</h4>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="form-group">

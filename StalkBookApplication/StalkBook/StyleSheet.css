@@ -187,11 +187,11 @@ button[type=submit]
 
 .profile-info
 {
-    padding: 35px 0;
-    margin-left: auto;
-    margin-right: auto; 
-    width: 256px;
-    text-align: center;
+    margin-left: 21%;
+    margin-right: 30%;
+    width: 100%;
+    padding: 20px 20px 20px 20px;
+    float: none;
 }
 
 .profile-picture
@@ -463,3 +463,4 @@ button[type=submit]
 .elegant-aero .button:hover{
     background: #3EB1DD;
 }
+
