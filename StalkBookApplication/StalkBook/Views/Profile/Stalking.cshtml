@@ -15,8 +15,9 @@
     {
         if (!(Model.ElementAt(i).userID == Model.ElementAt(0).userID))
         {
-            <div class="content">
+            <div data-id="@Model.ElementAt(i).userID" class="search-body content">
                 @Html.ActionLink(Model.ElementAt(i).name, "GetProfile", "Profile", new { Id = Model.ElementAt(i).userID }, new { @class = "user-fullName" })
+                <button class="btn btn-primary btn-sm stalk-button search-button">Stalking</button>
             </div>
         }
     }
