@@ -96,8 +96,7 @@ namespace StalkBook.Service
 				profiles.Add( GetProfile(item.stalkedId) );
 			}
 
-			profiles.Sort((x,y) => string.Compare(x.name, y.name));
-
+			profiles = profiles.OrderBy(x => x.name).ToList();
 			profiles.Insert(0, myProfile);
 
 			return profiles;
