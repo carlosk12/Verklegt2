@@ -75,7 +75,7 @@ namespace StalkBook.Tests.Service
             var profile2 = new Profile { ID = 2, name = "Gummi", userID = "User2" };
             var profile3 = new Profile { ID = 3, name = "Gunna", userID = "User3" };
             List<string> stalkings = new List<string> {"User1", "User2", "User3"};
-            List<Profile> profiles = new List<Profile>{profile1, profile2, profile3 };
+            List<Profile> profiles = new List<Profile>{profile2, profile3, profile1 };
 
 		    var expectedResult = new SearchViewModel {searchString = "G", userId = "User3", stalking = stalkings, searchResult = profiles};
 
@@ -96,7 +96,7 @@ namespace StalkBook.Tests.Service
             var profile2 = new Profile { ID = 2, name = "Gummi", userID = "User2" };
             var profile3 = new Profile { ID = 3, name = "Gunna", userID = "User3" };
             List<string> stalkings = new List<string> { "User1", "User2", "User3" };
-            List<Profile> profiles = new List<Profile> { profile1, profile2, profile3 };
+            List<Profile> profiles = new List<Profile> { profile2, profile3, profile1 };
 
             var expectedResult = new SearchViewModel { searchString = "", userId = "User3", stalking = stalkings, searchResult = profiles };
 
