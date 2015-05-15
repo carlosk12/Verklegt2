@@ -65,6 +65,10 @@ button[type=submit]
     color: rgb(255, 255, 255);
 }
 
+.group-link
+{
+    display: inline-block;
+}
 .content
 {
     background-color: white;
