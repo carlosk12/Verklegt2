@@ -6,7 +6,7 @@
 
 <h2>SearchGroups</h2>
 
-<p class="search-groups">@Html.ActionLink("Search Profiles", "Search", "Search", new { searchString = Model.searchString }, null)</p>
+<p class="search-groups">@Html.ActionLink("Search Profiles", "Search", "Search", new { searchString = Model.searchString }, htmlAttributes: new {@class="btn btn-default" })</p>
 
 <div class="search-profiles">
     @foreach (var item in Model.groups)
