@@ -1,18 +1,16 @@
 ﻿@model StalkBook.Models.Profile
 @{
-    ViewBag.Title = "ChangeProfilePic";
+    ViewBag.Title = "Change Profile Picture";
 }
 
-<h2>Change Profile Picture</h2>
 
-@using (Html.BeginForm("ChangeProfilePic", "Manage", FormMethod.Post, new { @class = "elegant-aero", role = "form" }))
+@using (Html.BeginForm("ChangeProfilePic", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
+    <h3 class="col-md-offset-2">@ViewBag.Title</h3>
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
+    <div>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
         <div class="form-group">
             @Html.LabelFor(model => model.profilePicUrl, "Picture Url" , htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">

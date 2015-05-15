@@ -4,10 +4,9 @@
     ViewBag.Title = "Change Email";
 }
 
-<h2>Change Email</h2>
-
 @using (Html.BeginForm("ChangeEmail", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
+    <h3 class="col-md-offset-2">@ViewBag.Title</h3>
     @Html.AntiForgeryToken()
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
@@ -23,6 +22,9 @@
         </div>
     </div>
 }
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
