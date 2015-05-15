@@ -8,6 +8,8 @@
     <a class="profile-picture-anchor" href="@Url.Content(Model.ElementAt(0).profilePicUrl)"><img class="profile-picture" src="@Url.Content(Model.ElementAt(0).profilePicUrl)" alt="Profile Picture" /></a>
     <h3>@Model.ElementAt(0).name</h3>
     <p>Started stalking: @Model.ElementAt(0).creationDate.Day.@Model.ElementAt(0).creationDate.Month.@Model.ElementAt(0).creationDate.Year </p>
+    @Html.ActionLink("Stalking", "Stalking", "Profile", new { Id = Model.ElementAt(0).userID }, htmlAttributes: null)
+    @Html.ActionLink("Stalkers", "Stalkers", "Profile", new { Id = Model.ElementAt(0).userID }, htmlAttributes: null)
 </div>
 
 <div class="stalking-list">

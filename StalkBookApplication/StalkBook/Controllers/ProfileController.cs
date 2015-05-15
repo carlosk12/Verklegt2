@@ -55,5 +55,12 @@ namespace StalkBook.Controllers
 
 			return View("Stalking", model);
 		}
+
+		public ActionResult Stalkers(string Id)
+		{
+			var model = service.ViewStalkers(Id);
+
+			return View("Stalking", model);
+		}
     }
 }

@@ -91,12 +91,34 @@ namespace StalkBook.Service
 
 			ProfileViewModel myProfile = this.GetProfile(Id);
 
-			profiles.Add(myProfile);
-
 			foreach (var item in stalkList)
 			{
 				profiles.Add( GetProfile(item.stalkedId) );
 			}
+
+			profiles.Sort((x,y) => string.Compare(x.name, y.name));
+
+			profiles.Insert(0, myProfile);
+
+			return profiles;
+		}
+
+		public IEnumerable<ProfileViewModel> ViewStalkers(string Id)
+		{
+			List<ProfileViewModel> profiles = new List<ProfileViewModel>();
+
+			var stalkList = (from p in db.stalking
+							 where p.stalkedId == Id
+							 select p).ToList();
+
+			ProfileViewModel myProfile = this.GetProfile(Id);
+
+			foreach (var item in stalkList)
+			{
+				profiles.Add(GetProfile(item.userId));
+			}
+
+			profiles.Sort((x, y) => string.Compare(x.name, y.name));
 
 			return profiles;
 		}

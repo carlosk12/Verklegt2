@@ -10,6 +10,7 @@
     <h3>@Model.name</h3>
     <p>Started stalking: @Model.creationDate.Day.@Model.creationDate.Month.@Model.creationDate.Year </p>
     @Html.ActionLink("Stalking", "Stalking", "Profile", new { Id = Model.userID}, htmlAttributes: null)
+    @Html.ActionLink("Stalkers", "Stalkers", "Profile", new { Id = Model.userID }, htmlAttributes: null)
 </div>
 
 @if (Model.userID == Model.myId)
