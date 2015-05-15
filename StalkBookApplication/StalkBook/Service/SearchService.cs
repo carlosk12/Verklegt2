@@ -14,9 +14,9 @@ namespace StalkBook.Service
         private readonly IAppDataContext db;
 
         public SearchService(IAppDataContext context)
-         {
-             db = context ?? new ApplicationDbContext();
-         }
+        {
+            db = context ?? new ApplicationDbContext();
+        }
         public SearchViewModel Search(string userId, string searchString)
         {
             var model = new SearchViewModel();
@@ -49,7 +49,7 @@ namespace StalkBook.Service
             var model = new GroupViewModel();
             // Get all groups.
             var groups = (from g in db.groups
-                           select g).ToList();
+                          select g).ToList();
 
             // If the searchString is not empty.
             // Find all the groups with name that contain the searchString.
@@ -64,8 +64,8 @@ namespace StalkBook.Service
             model.groups = groups;
             // Id of all groups that user has joined.
             model.groupsJoined = (from s in db.groupProfileFks
-                              where s.profileID == userId
-                              select s.groupID).ToList();
+                                  where s.profileID == userId
+                                  select s.groupID).ToList();
             model.searchString = searchString;
             model.myId = userId;
 
