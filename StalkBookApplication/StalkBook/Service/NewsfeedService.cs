@@ -42,13 +42,16 @@ namespace StalkBook.Service
             try
             {
                 var model = new StatusViewModel();
+                // Id of all users that the userId is stalking. Including himself.
                 List<string> result1 = (from s in db.stalking
                                         where s.userId == userId
                                         select s.stalkedId.ToString()).ToList();
-
+                // Take 50 most recent statuses from the users that the userId is stalking.
                 var result = (from us in db.userStatuses where result1.Contains(us.userId) orderby us.timeCreated descending select us).Take(50);
                 model.availableStatuses = result;
+                // Profiles of all the users that the userId is stalking.
                 model.profiles = (from p in db.profiles where result1.Contains(p.userID) select p).ToList();
+                // GroupIds of all groups the userId has joined.
                 List<int> groupsJoined = (from g in db.groupProfileFks where g.profileID == userId select g.groupID).ToList();
                 model.groupsJoined = (from g in db.groups where groupsJoined.Contains(g.ID) select g).ToList();
 
@@ -110,6 +113,8 @@ namespace StalkBook.Service
         {
             try
             {
+                // Get users current rating of the status. 
+                // Return null if user hasn't rated the status.
                 var myRating = (from r in db.userStatusRating
                                 where r.userId == userId
                                 where r.statusId == statusId
@@ -157,7 +162,8 @@ namespace StalkBook.Service
                 }
 
 
-
+                // Update the rating if the user had already rated the status.
+                // Else add the rating to userStatusRating.
                 if (myRating != null)
                 {
                     myRating.rating = result.rating;
