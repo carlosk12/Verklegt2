@@ -23,6 +23,7 @@ namespace StalkBook.Models
         public IEnumerable<Status> availableStatuses { get; set; }
         public IEnumerable<UserStatusRating> myRatings { get; set; }
         public IEnumerable<Profile> profiles { get; set; }
+        public IEnumerable<Group> groupsJoined { get; set; }
 
     }
 }

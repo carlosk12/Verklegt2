@@ -18,7 +18,6 @@ namespace StalkBook.Controllers
         public ActionResult Index()
         {
             var model = service.GetAllAvailableStatuses(User.Identity.GetUserId());
-            //model.availableStatuses = statuses;
             model.myRatings = service.GetRatingByUserId(User.Identity.GetUserId());
 
 

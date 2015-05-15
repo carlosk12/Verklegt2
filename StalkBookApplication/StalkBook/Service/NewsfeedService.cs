@@ -46,9 +46,11 @@ namespace StalkBook.Service
                                         where s.userId == userId
                                         select s.stalkedId.ToString()).ToList();
 
-                var result = (from us in db.userStatuses where result1.Contains(us.userId) where us.groupId == null orderby us.timeCreated descending select us).Take(50);
+                var result = (from us in db.userStatuses where result1.Contains(us.userId) orderby us.timeCreated descending select us).Take(50);
                 model.availableStatuses = result;
                 model.profiles = (from p in db.profiles where result1.Contains(p.userID) select p).ToList();
+                List<int> groupsJoined = (from g in db.groupProfileFks where g.profileID == userId select g.groupID).ToList();
+                model.groupsJoined = (from g in db.groups where groupsJoined.Contains(g.ID) select g).ToList();
 
                 return model;
             }

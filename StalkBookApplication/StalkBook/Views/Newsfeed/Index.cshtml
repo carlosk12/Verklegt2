@@ -21,39 +21,44 @@
         var profile = Model.profiles.Where(s => s.userID == item.userId).SingleOrDefault();
         var profilePic = profile.profilePicUrl;
         var statusRating = Model.myRatings.Where(s => s.statusId == item.ID).SingleOrDefault();
-        var rating = item.upvotes - item.downvotes;    
-        <div class="content" data-id="@item.ID">
-            @if (statusRating == null || statusRating.rating == 0)
-            {
-                <div class="rating-button neutral-up" role="button" tabindex="0">0</div>
-                <div class="rating-button neutral-down" role="button" tabindex="0">0</div>
-            }
-            else if (statusRating.rating == 1)
-            {
-                <div class="rating-button upvoted" role="button" tabindex="0">1</div>
-                <div class="rating-button neutral-down" role="button" tabindex="0">1</div>
-            }
-            else
-            {
-                <div class="rating-button neutral-up" role="button" tabindex="0">2</div>
-                <div class="rating-button downvoted" role="button" tabindex="0">2</div>
-            }
-            <p class="status-rating">@rating</p>  
-            <div class="status-main">
-                @Html.ActionLink(item.fullName, "GetProfile", "Profile", new { Id = item.userId }, new { @class = "user-fullName" })
-                <img class="profile-picture-icon" src="@Url.Content(profilePic)" alt="Profile Picture" />
-                <p>@item.timeCreated.Date.ToShortDateString() @item.timeCreated.ToShortTimeString()</p>
-                <p class="test">@item.body</p>
-                @if (!String.IsNullOrEmpty(item.urlToPic))
+        var rating = item.upvotes - item.downvotes;
+        var group = Model.groupsJoined.Where(s => s.ID == item.groupId).SingleOrDefault();
+        if (item.groupId == null || group != null)
+        {
+            <div class="content" data-id="@item.ID">
+                @if (statusRating == null || statusRating.rating == 0)
                 {
-                    <a href="@Url.Content(item.urlToPic)">
-                        <img class="status-picture" src="@Url.Content(item.urlToPic)" alt="Image" />
-                    </a>
-                }    
-            </div>                         
-            
-        </div>     
+                    <div class="rating-button neutral-up" role="button" tabindex="0">0</div>
+                    <div class="rating-button neutral-down" role="button" tabindex="0">0</div>
+                }
+                else if (statusRating.rating == 1)
+                {
+                    <div class="rating-button upvoted" role="button" tabindex="0">1</div>
+                    <div class="rating-button neutral-down" role="button" tabindex="0">1</div>
+                }
+                else
+                {
+                    <div class="rating-button neutral-up" role="button" tabindex="0">2</div>
+                    <div class="rating-button downvoted" role="button" tabindex="0">2</div>
+                }
+                <p class="status-rating">@rating</p>
+                <div class="status-main">
+                    @if (group != null)
+                    {
+                        <div><p class="user-fullName">Group: </p>@Html.ActionLink(group.name, "GetGroupById", "Group", new { groupId = group.ID }, new { @class = "group-link" })</div>
+                    }
+                    @Html.ActionLink(item.fullName, "GetProfile", "Profile", new { Id = item.userId }, new { @class = "user-fullName" })
+                    <img class="profile-picture-icon" src="@Url.Content(profilePic)" alt="Profile Picture" />
+                    <p>@item.timeCreated.Date.ToShortDateString() @item.timeCreated.ToShortTimeString()</p>
+                    <p class="test">@item.body</p>
+                    @if (!String.IsNullOrEmpty(item.urlToPic))
+                    {
+                        <a href="@Url.Content(item.urlToPic)">
+                            <img class="status-picture" src="@Url.Content(item.urlToPic)" alt="Image" />
+                        </a>
+                    }
+                </div>
+            </div>
+        }
     }
 </div>
-
-
