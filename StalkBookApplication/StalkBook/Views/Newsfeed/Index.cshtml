@@ -48,8 +48,8 @@
                         <div><p class="user-fullName">Group: </p>@Html.ActionLink(group.name, "GetGroupById", "Group", new { groupId = group.ID }, new { @class = "group-link" })</div>
                     }
                     @Html.ActionLink(item.fullName, "GetProfile", "Profile", new { Id = item.userId }, new { @class = "user-fullName" })
-                    <img class="profile-picture-icon" src="@Url.Content(profilePic)" alt="Profile Picture" />
-                    <p>@item.timeCreated.Date.ToShortDateString() @item.timeCreated.ToShortTimeString()</p>
+                    <a href="@Url.Content(profilePic)"><img class="profile-picture-icon" src="@Url.Content(profilePic)" alt="Profile Picture" /></a>
+                    <p class="status-time">@item.timeCreated.Date.ToShortDateString() @item.timeCreated.ToShortTimeString()</p>
                     <p class="test">@item.body</p>
                     @if (!String.IsNullOrEmpty(item.urlToPic))
                     {
