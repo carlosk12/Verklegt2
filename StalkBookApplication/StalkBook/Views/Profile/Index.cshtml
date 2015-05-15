@@ -8,7 +8,8 @@
 <div class="profile-info">
     <a class ="profile-picture-anchor" href="@Url.Content(Model.profilePicUrl)"><img class="profile-picture" src="@Url.Content(Model.profilePicUrl)" alt="Profile Picture"/></a>
     <h3>@Model.name</h3>
-    <p>Started stalking: @Model.creationDate.Day.@Model.creationDate.Month.@Model.creationDate.Year </p>       
+    <p>Started stalking: @Model.creationDate.Day.@Model.creationDate.Month.@Model.creationDate.Year </p>
+    @Html.ActionLink("Stalking", "Stalking", "Profile", new { Id = Model.userID}, htmlAttributes: null)
 </div>
 
 @if (Model.userID == Model.myId)

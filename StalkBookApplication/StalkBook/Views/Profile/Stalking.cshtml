@@ -9,3 +9,15 @@
     <h3>@Model.ElementAt(0).name</h3>
     <p>Started stalking: @Model.ElementAt(0).creationDate.Day.@Model.ElementAt(0).creationDate.Month.@Model.ElementAt(0).creationDate.Year </p>
 </div>
+
+<div class="stalking-list">
+    @for (int i = 1; i < Model.Count(); i++)
+    {
+        if (!(Model.ElementAt(i).userID == Model.ElementAt(0).userID))
+        {
+            <div class="content">
+                @Html.ActionLink(Model.ElementAt(i).name, "GetProfile", "Profile", new { Id = Model.ElementAt(i).userID }, new { @class = "user-fullName" })
+            </div>
+        }
+    }
+</div>

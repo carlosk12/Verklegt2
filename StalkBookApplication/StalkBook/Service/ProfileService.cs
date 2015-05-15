@@ -28,7 +28,8 @@ namespace StalkBook.Service
 							  select s).ToList();
 
             var result = new ProfileViewModel();
-            result.creationDate = profileInfo.creationDate;
+            
+			result.creationDate = profileInfo.creationDate;
             result.name = profileInfo.name;
             result.userStatuses = myStatuses;
             result.userID = profileInfo.userID;
@@ -82,7 +83,7 @@ namespace StalkBook.Service
 
 		public IEnumerable<ProfileViewModel> ViewStalking(string Id)
 		{
-			IEnumerable<ProfileViewModel> profiles = new List<ProfileViewModel>();
+			List<ProfileViewModel> profiles = new List<ProfileViewModel>();
 
 			var stalkList = (from p in db.stalking
 						  where p.userId == Id
@@ -90,11 +91,11 @@ namespace StalkBook.Service
 
 			ProfileViewModel myProfile = this.GetProfile(Id);
 
-			profiles.ToList().Add(myProfile);
+			profiles.Add(myProfile);
 
 			foreach (var item in stalkList)
 			{
-				profiles.ToList().Add( GetProfile(item.userId) );
+				profiles.Add( GetProfile(item.stalkedId) );
 			}
 
 			return profiles;
